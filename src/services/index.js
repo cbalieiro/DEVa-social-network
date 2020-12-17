@@ -18,11 +18,11 @@ export const myFunction = () => {
 // firebase.initializeApp(firebaseConfig);
 
 
-export const loginUser = () => firebase.auth().signInWithEmailAndPassword(email, password);
+// export const loginUser = () => firebase.auth().signInWithEmailAndPassword(email, password);
 
    
 
-export const signUp = () => firebase.auth().createUserWithEmailAndPassword(email, password);
+// export const signUp = () => firebase.auth().createUserWithEmailAndPassword(email, password);
   
 
 

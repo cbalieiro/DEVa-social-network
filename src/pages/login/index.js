@@ -1,4 +1,4 @@
-import { loginUser, signUp} from './services/index.js';
+// import { loginUser, signUp} from './services/index.js';
 
 
 
@@ -17,18 +17,58 @@ export const Login = () => {
       </form>
   `;
 
-  const emailTxt = document.getElementById("email");
-  const  passTxt = document.getElementById("password");
-  const email  = emailTxt.value;
-  const  password = passTxt.value;
-  const loginButton = document.getElementById("lgnBtn");
-  loginButton.addEventListener("click", loginUser (email, password));
+  const emailTxt = rootElement.querySelector("#email");
+  const  passTxt = rootElement.querySelector("#password");
+  // let email  = emailTxt.value;
+  // let  password = passTxt.value;
+  const loginButton = rootElement.querySelector("#lgnBtn");
+  loginButton.addEventListener("click", (event) =>{
+  //   firebase.auth().signInWithEmailAndPassword(email, password)
+  //   .then(()=> console.log("eita"))
+  // });
+    
+    console.log(passTxt.value);
+    event.preventDefault();
+    
+    firebase.auth().createUserWithEmailAndPassword(emailTxt.value, passTxt.value)
+    .then((user) => {
+      console.log("eita");
+      // Signed in
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ..
+    });
+  });
+
+
+
+
+
+
+  // const signUpButton = rootElement.querySelector("#sgnUpBtn");
+  // signUpButton.addEventListener("click", (e)=>{
+  //   e.preventDefault();
+  //   firebase.auth().createUserWithEmailAndPassword(email, password);
+  // });
+
   
-  const signUpButton = document.getElementById("sgnUpBtn");
-  signUpButton.addEventListener("click", signUp(emailTxt, passTxt));
 
+  //   const stateChange =  firebase.auth().onAuthStateChanged(firebaseUser => {
+  //       if(firebaseUser){
+  //         console.log(firebaseUser);
+  //       }else{
+  //         console.log("not logged in");
+  //       }
+    
+  //   });
+    
 
+  
 
+ 
 
   return rootElement;
   
