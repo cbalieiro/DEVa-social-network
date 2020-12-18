@@ -18,41 +18,56 @@ export const Login = () => {
       </form>
   `;
 
-  const emailTxt = rootElement.querySelector("#email");
-  const  passTxt = rootElement.querySelector("#password");
-
+  const email = rootElement.querySelector("#email");
+  const  password = rootElement.querySelector("#password");
   const loginButton = rootElement.querySelector("#lgnBtn");
-  loginButton.addEventListener("click", (event) =>{
-    console.log(passTxt.value);
-    event.preventDefault();
-    
-    firebase.auth().signInWithEmailAndPassword(emailTxt.value, passTxt.value)
-    .then((user) => {
-      console.log("eita");
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
-  });
-
-
   const signUpButton = rootElement.querySelector("#sgnUpBtn");
-  signUpButton.addEventListener("click", (e)=>{
-    console.log(emailTxt.value);
+
+  function clear () {
+    email.value = "";
+    password.value = "";
+    
+  };
+  
+  
+  loginButton.addEventListener("click", (e) =>{
     e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(emailTxt.value, passTxt.value)
-    .then((user) => {
-      console.log("eita");
-    })
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .catch((error) => {
-      
       var errorCode = error.code;
       var errorMessage = error.message;
     });
+    clear();
   });
+
 
   
+  signUpButton.addEventListener("click", (e)=>{
+    e.preventDefault();
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+    clear();
+  });
+
+  const logoutButton = rootElement.querySelector("#sgnOutBtn")
+  logoutButton.addEventListener("click", (e)=>{
+    e.preventDefault();
+    firebase.auth().signOut();
+
+  });
+
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(function() {
+    return firebase.auth().signInWithEmailAndPassword(email.value, password.value);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
 
     // const stateChange =  firebase.auth().onAuthStateChanged(firebaseUser => {
     //     if(firebaseUser){
