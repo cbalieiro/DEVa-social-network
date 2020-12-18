@@ -1,7 +1,6 @@
 // import { loginUser, signUp} from './services/index.js';
 
 
-
 export const Login = () => {
   // Coloque sua página
   
@@ -12,9 +11,8 @@ export const Login = () => {
         <input type="email" id="email" placeholder="E-mail"></input>
         <input type="password" id="password" placeholder="Senha"></input>
         <button type="submit" id="lgnBtn">Login</button>
-        <button type="submit" id="sgnUpBtn">Cadastrar</button>
         <button type="submit" id="sgnOutBtn">Logout</button>
-
+        <button type="submit" id="sgnUpBtn">Cadastrar</button>
       </form>
   `;
 
@@ -44,12 +42,14 @@ export const Login = () => {
   
   signUpButton.addEventListener("click", (e)=>{
     e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
-    clear();
+    rootElement.innerHTML = "";
+    
+    // firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    // .catch((error) => {
+    //   var errorCode = error.code;
+    //   var errorMessage = error.message;
+    // });
+    // clear();
   });
 
   const logoutButton = rootElement.querySelector("#sgnOutBtn")
