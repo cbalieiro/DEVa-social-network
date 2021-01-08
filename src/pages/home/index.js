@@ -8,7 +8,7 @@ export const Home = () => {
      
       <form id="post-form">
         <input type="text" id="post-text" width="100px" height="60px"></input>
-        <button type="submit">Publicar</button>
+        <button id="form-button" type="submit">Publicar</button>
       </form>
 
       <div id="post-list">
@@ -23,9 +23,7 @@ export const Home = () => {
    logOut();
   });
 
-  const clear = () =>{
-    rootElement.querySelector('#post-text').innerHTML = " ";
-  };
+  const clear = () => rootElement.querySelector('#post-text').value = " ";
   
   const postForm = rootElement.querySelector('#post-form');
   postForm.addEventListener('submit', (e) => {
@@ -35,16 +33,17 @@ export const Home = () => {
     const post = {
       text: text,
       userId: firebase.auth().currentUser.uid,
-      postId: firebase.firestore().collection('posts').doc(id),
       likes: numLikes,
       comments: [],
-    }
-    const postCollection = firebase.firestore().collection('posts')
-    postCollection.add(post)
-    clear();
-    console.log(post)
+    };
+    const postCollection = firebase.firestore().collection('posts');
+    postCollection.add(post).then(()=> {
+      clear();
+      rootElement.querySelector('#post-list').innerHTML = " ";
+      loadPosts();
+    });
   });
-
+    
   function addPost (post) {
     const templatePost = `
       <div id='${post.id}'>
@@ -53,14 +52,12 @@ export const Home = () => {
       </div>
       <button id="like-button" type="submit">Gostei</button>
     `
+    // templatePost.getElementById('#like-button').addEventListener('click', () => numLikes ++);
     rootElement.querySelector('#post-list').innerHTML += templatePost;
     
   }
   
-  // const likeBtn = templatePost.querySelector('#like-button')
-  // likeBtn.addEventListener('submit', () => {
-  //     numLikes ++;
-  // })
+  
 
   function loadPosts(){
     const postCollection = firebase.firestore().collection('posts')
