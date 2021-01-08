@@ -1,5 +1,5 @@
 import { logOut } from '../../services/index.js';
-import { timelineTags } from './standard.js';
+import { timelineTags, postTags } from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
@@ -14,33 +14,15 @@ export const Home = () => {
 
   const clear = () => { rootElement.querySelector('#post-text').value = ' '; };
 
-  const postForm = rootElement.querySelector('#post-form');
-  postForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const text = rootElement.querySelector('#post-text').value;
-    const numLikes = 0;
-    const post = {
-      text: text,
-      userId: firebase.auth().currentUser.uid,
-      likes: numLikes,
-      comments: [],
-    };
-    const postCollection = firebase.firestore().collection('posts');
-    postCollection.add(post).then(() => {
-      clear();
-      rootElement.querySelector('#post-list').innerHTML = ' ';
-      loadPosts();
-    });
-  });
-
   function addPost(post) {
-    const templatePost = `
-      <div id='${post.id}'>
-        ${post.data().text}
-        ${post.data().likes}
-      </div>
-      <button id='like-button' type='submit'>Gostei</button>
-    `;
+    const templatePost = postTags(post);
+    // `
+    //   <div id='${post.id}'>
+    //   <p>${post.data().text}</p>
+    //   ❤️ ${post.data().likes}
+    //   </div>
+    //   <button id='like-button' type='submit'>Gostei</button>
+    // `;
     // templatePost.getElementById('#like-button').addEventListener('click', () => numLikes ++);
     rootElement.querySelector('#post-list').innerHTML += templatePost;
   }
@@ -54,6 +36,33 @@ export const Home = () => {
     });
   }
 
+  // function deletePost(postId) {
+  //   const postCollection = firebase.firestore().collection('posts');
+  //   postCollection.doc(postId).then(doc => doc.delete()
+  //   )
+  // }
+
+  const postForm = rootElement.querySelector('#post-form');
+  postForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textUser = rootElement.querySelector('#post-text').value;
+    const numLikes = 0;
+    const post = {
+      text: textUser,
+      userId: firebase.auth().currentUser.uid,
+      likes: numLikes,
+      comments: [],
+      date: new Date(),
+    };
+    const postCollection = firebase.firestore().collection('posts');
+    postCollection.add(post).then(() => {
+      clear();
+      rootElement.querySelector('#post-list').innerHTML = ' ';
+      loadPosts();
+    });
+  });
+
   loadPosts();
+
   return rootElement;
 };
