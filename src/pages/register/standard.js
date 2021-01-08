@@ -22,4 +22,3 @@ export const newUser = () => {
   `;
   return template;
 };
-

@@ -1,6 +1,5 @@
 import { createUser } from '../../services/index.js';
 import { newUser } from './standard.js';
-import { onNavigate } from '../../utils/history.js';
 
 export const Register = () => {
   const registerPage = document.createElement('div');
@@ -25,7 +24,7 @@ export const Register = () => {
         email: registerPage.querySelector('#register-email').value,
         password: registerPage.querySelector('#register-pass').value,
       };
-      createUser(person).then(onNavigate('/home'));
+      createUser(person);
     }
   });
 
