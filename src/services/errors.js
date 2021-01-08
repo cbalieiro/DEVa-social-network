@@ -13,6 +13,9 @@ export const errors = (errorCode) => {
     case 'auth/uid-already-exists':
       message = 'UID já existe';
       break;
+    case ' The email address is badly formatted. ':
+      message = 'Email incorreto';
+      break;
     default:
       message = errorCode;
   }

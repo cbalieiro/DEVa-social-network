@@ -12,14 +12,7 @@ export const validation = (person) => {
         onNavigate('/home');
       }
     })
-    .catch((error) => {
-      const errorMessage = error.message;
-      if (errorMessage == 'The email address is badly formatted.') {
-        alert('Email incorreto');
-      } else {
-        alert('Senha incorreta');
-      }
-    });
+    .catch((error) => errors(error));
 };
 
 export const persist = () => {
@@ -36,7 +29,13 @@ export const createUser = (person) => {
     .then(
       () => { firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(person); },
     )
-    .then(onNavigate('/home'))
+    .then(() => {
+      if (firebase.auth().currentUser == null) {
+        onNavigate('/');
+      } else {
+        onNavigate('/home');
+      }
+    })
     .catch((error) => errors(error));
 };
 
