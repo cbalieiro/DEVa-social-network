@@ -40,19 +40,19 @@ export const Home = () => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const numLikes = 0;
-    const post = {
-      text: textUser,
-      userId: firebase.auth().currentUser.uid,
-      likes: numLikes,
-      comments: [],
-      date: new Date(),
-    };
-    const postCollection = firebase.firestore().collection('posts');
-    postCollection.add(post).then(() => {
-      clear();
-      rootElement.querySelector('#post-list').innerHTML = ' ';
-      loadPosts();
-    });
+      const post = {
+        text: textUser,
+        userId: firebase.auth().currentUser.uid,
+        likes: numLikes,
+        comments: [],
+        date: new Date(),
+      };      
+      const postCollection = firebase.firestore().collection('posts');
+        postCollection.add(post).then(() => {
+        clear();
+        rootElement.querySelector('#post-list').innerHTML = ' ';
+        loadPosts();
+      });    
   });
 
   loadPosts();
