@@ -38,25 +38,49 @@ export const Home = () => {
   //   });
   // }
 
+//  comentarios para não ter conflito
+//  comentarios para não ter conflito
+//  comentarios para não ter conflito
+
+    // function deletePost(postId) {
+  //   const postCollection = firebase.firestore().collection('posts');
+  //   postCollection.doc(postId).then((doc) => {
+  //     doc.delete()
+  //       .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
+  //   });
+  // }
+
   const postForm = rootElement.querySelector('#post-form');
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const numLikes = 0;
-      const post = {
-        text: textUser,
-        userId: firebase.auth().currentUser.uid,
-        likes: numLikes,
-        comments: [],
-        date: new Date(),
-      };      
-      const postCollection = firebase.firestore().collection('posts');
-        postCollection.add(post).then(() => {
-        clear();
-        rootElement.querySelector('#post-list').innerHTML = ' ';
-        loadPosts();
-      });    
+    const post = {
+      text: textUser,
+      userId: firebase.auth().currentUser.uid,
+      likes: numLikes,
+      comments: [],
+      date: new Date(),
+    };
+    const postCollection = firebase.firestore().collection('posts');
+    postCollection.add(post).then(() => {
+      clear();
+      rootElement.querySelector('#post-list').innerHTML = ' ';
+      loadPosts();
+    });
   });
+
+//  comentarios para não ter conflito
+//  comentarios para não ter conflito
+//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito//  comentarios para não ter conflito
+//  comentarios para não ter conflito
+
 
   loadPosts();
 
