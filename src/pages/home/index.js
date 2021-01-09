@@ -39,7 +39,6 @@ export const Home = () => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
-    console.log(textUser);
     const numLikes = 0;
       const post = {
         text: textUser,
@@ -47,20 +46,13 @@ export const Home = () => {
         likes: numLikes,
         comments: [],
         date: new Date(),
-      };
-      
-    if (textUser === ' '){
-      console.log('Escreva alguma coisa')
-    }else{
-      
+      };      
       const postCollection = firebase.firestore().collection('posts');
         postCollection.add(post).then(() => {
         clear();
         rootElement.querySelector('#post-list').innerHTML = ' ';
         loadPosts();
-      });
-    }
-    
+      });    
   });
 
   loadPosts();

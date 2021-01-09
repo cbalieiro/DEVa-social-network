@@ -1,5 +1,5 @@
 import { loginTags } from './standard.js';
-import { validation, persist } from '../../services/index.js';
+import { validation, persist, loginGoogle, loginGitHub } from '../../services/index.js';
 import { onNavigate } from '../../utils/history.js';
 
 export const Login = () => {
@@ -10,11 +10,8 @@ export const Login = () => {
   const loginButton = rootElement.querySelector('#lgn-btn');
   const signUpButton = rootElement.querySelector('#sgnUp-btn');
   const register = rootElement.querySelector('#btn-register');
-
-  // const clear = () => {
-  //   email.value = '';
-  //   password.value = '';
-  // };
+  const googleButton = rootElement.querySelector('.login-google');
+  const gitHubButton = rootElement.querySelector('.login-github');
 
   loginButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -24,6 +21,18 @@ export const Login = () => {
     };
     validation(person);
     persist(person);
+  });
+
+  googleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginGoogle();
+    persist();
+  });
+
+  gitHubButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginGitHub();
+    persist();
   });
 
   signUpButton.addEventListener('click', (e) => {
