@@ -3,6 +3,7 @@ import { timelineTags, postTags } from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
+  rootElement.id = 'pageStructure';
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
@@ -31,8 +32,10 @@ export const Home = () => {
 
   // function deletePost(postId) {
   //   const postCollection = firebase.firestore().collection('posts');
-  //   postCollection.doc(postId).then(doc => doc.delete()
-  //   )
+  //   postCollection.doc(postId).then((doc) => {
+  //     doc.delete()
+  //       .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
+  //   });
   // }
 
   const postForm = rootElement.querySelector('#post-form');
