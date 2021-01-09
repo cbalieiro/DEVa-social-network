@@ -15,16 +15,9 @@ export const Home = () => {
   const clear = () => { rootElement.querySelector('#post-text').value = ' '; };
 
   function addPost(post) {
-    const templatePost = postTags(post);
-    // `
-    //   <div id='${post.id}'>
-    //   <p>${post.data().text}</p>
-    //   ❤️ ${post.data().likes}
-    //   </div>
-    //   <button id='like-button' type='submit'>Gostei</button>
-    // `;
-    // templatePost.getElementById('#like-button').addEventListener('click', () => numLikes ++);
-    rootElement.querySelector('#post-list').innerHTML += templatePost;
+    const containerPosts = rootElement.querySelector('#post-list');
+    const templatePost = postTags(post, containerPosts);
+    return templatePost;
   }
 
   function loadPosts() {
