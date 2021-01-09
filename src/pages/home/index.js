@@ -3,6 +3,7 @@ import { timelineTags, postTags } from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
+  rootElement.id = 'pageStructure';
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
