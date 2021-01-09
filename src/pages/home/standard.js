@@ -31,7 +31,7 @@ export const postTags = (post, containerPosts) => {
 
   const btnLikes = document.createElement('button');
   btnLikes.classList.add('btn-like');
-  btnLikes.id = post.id;
+  btnLikes.id = `btn-like-${post.id}`;
   btnLikes.innerText = ' Curtir ';
   btnArea.appendChild(btnLikes);
 

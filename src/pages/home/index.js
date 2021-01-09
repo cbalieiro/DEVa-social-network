@@ -31,8 +31,10 @@ export const Home = () => {
 
   // function deletePost(postId) {
   //   const postCollection = firebase.firestore().collection('posts');
-  //   postCollection.doc(postId).then(doc => doc.delete()
-  //   )
+  //   postCollection.doc(postId).then((doc) => {
+  //     doc.delete()
+  //       .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
+  //   });
   // }
 
   const postForm = rootElement.querySelector('#post-form');
