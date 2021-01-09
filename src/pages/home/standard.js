@@ -57,17 +57,19 @@ export const postTags = (post, containerPosts) => {
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
 
-  const btnEdit = document.createElement('button');
-  btnEdit.classList.add('btn-edit');
-  btnEdit.id = `btn-edit-${post.id}`;
-  btnEdit.innerText = ' Editar ';
-  btnArea.appendChild(btnEdit);
+  if (firebase.auth().currentUser.uid === post.data().userId) {
+    const btnEdit = document.createElement('button');
+    btnEdit.classList.add('btn-edit');
+    btnEdit.id = `btn-edit-${post.id}`;
+    btnEdit.innerText = ' Editar ';
+    btnArea.appendChild(btnEdit);
 
-  const btnDelete = document.createElement('button');
-  btnDelete.classList.add('btn-delete');
-  btnDelete.id = `btn-delete-${post.id}`;
-  btnDelete.innerText = ' Deletar ';
-  btnArea.appendChild(btnDelete);
+    const btnDelete = document.createElement('button');
+    btnDelete.classList.add('btn-delete');
+    btnDelete.id = `btn-delete-${post.id}`;
+    btnDelete.innerText = ' Deletar ';
+    btnArea.appendChild(btnDelete);
+  }
 
   postBody.appendChild(content);
   postBody.appendChild(btnArea);
