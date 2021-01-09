@@ -46,20 +46,28 @@ export const Home = () => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
+    console.log(textUser);
     const numLikes = 0;
-    const post = {
-      text: textUser,
-      userId: firebase.auth().currentUser.uid,
-      likes: numLikes,
-      comments: [],
-      date: new Date(),
-    };
-    const postCollection = firebase.firestore().collection('posts');
-    postCollection.add(post).then(() => {
-      clear();
-      rootElement.querySelector('#post-list').innerHTML = ' ';
-      loadPosts();
-    });
+      const post = {
+        text: textUser,
+        userId: firebase.auth().currentUser.uid,
+        likes: numLikes,
+        comments: [],
+        date: new Date(),
+      };
+      
+    if (textUser === ' '){
+      console.log('Escreva alguma coisa')
+    }else{
+      
+      const postCollection = firebase.firestore().collection('posts');
+        postCollection.add(post).then(() => {
+        clear();
+        rootElement.querySelector('#post-list').innerHTML = ' ';
+        loadPosts();
+      });
+    }
+    
   });
 
   loadPosts();
