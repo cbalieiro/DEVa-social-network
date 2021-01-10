@@ -97,7 +97,6 @@ export const postTags = (post, containerPosts) => {
 };
 
 export const navTags = (containerNav) => {
-
   const profileBody = document.createElement('div');
   profileBody.classList.add('profile-body');
 
@@ -110,7 +109,7 @@ export const navTags = (containerNav) => {
     profileBody.appendChild(profileImg);
   } else {
     const profileImg = document.createElement('img');
-    profileImg.classList.add('post-img');
+    profileImg.classList.add('profile-img');
     profileImg.src = firebase.auth().currentUser.photoURL;
     profileImg.setAttribute('height', '100');
     profileImg.setAttribute('width', '100');
@@ -118,9 +117,9 @@ export const navTags = (containerNav) => {
   }
 
   const displayNameInfo = document.createElement('h2');
-  displayNameInfo.classList.add('post-displayName-info');
+  displayNameInfo.classList.add('profile-displayName');
   displayNameInfo.innerText = firebase.auth().currentUser.displayName;
   profileBody.appendChild(displayNameInfo);
- 
+
   containerNav.appendChild(profileBody);
 };
