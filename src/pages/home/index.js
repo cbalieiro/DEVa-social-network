@@ -1,4 +1,4 @@
-import { logOut } from '../../services/index.js';
+import { logOut, loginGitHub } from '../../services/index.js';
 import { timelineTags, postTags } from './standard.js';
 
 export const Home = () => {
@@ -57,6 +57,9 @@ export const Home = () => {
         loadPosts();
       });    
   });
+
+  
+
 
   loadPosts();
 

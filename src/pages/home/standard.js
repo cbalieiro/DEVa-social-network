@@ -6,6 +6,8 @@ export const timelineTags = () => {
 
   <nav>
     <h1>NAV PARA CARREGAR PERFIL</h1>
+    <div class='profile-picture'>
+    </div>
   </nav>
 
   <main>
