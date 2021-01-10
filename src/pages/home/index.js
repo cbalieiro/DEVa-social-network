@@ -54,11 +54,13 @@ export const Home = () => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
+    const currentUserInfo = firebase.auth().currentUser;
     const numLikes = 0;
     const date = new Date();
     const post = {
-      name: firebase.auth().currentUser.displayName,
-      userId: firebase.auth().currentUser.uid,
+      name: currentUserInfo.displayName,
+      userId: currentUserInfo.uid,
+      photo: currentUserInfo.photoURL
       text: textUser,
       likes: numLikes,
       comments: [],

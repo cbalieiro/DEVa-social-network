@@ -44,12 +44,14 @@ export const postTags = (post, containerPosts) => {
 
   const profileImg = document.createElement('img');
   profileImg.classList.add('post-img');
-  profileImg.src = firebase.auth().currentUser.photoURL;
+  profileImg.setAttribute('src', `${post.data().photo}`);
+  profileImg.setAttribute('height', '40');
+  profileImg.setAttribute('width', '40');
   profileInfo.appendChild(profileImg);
 
   const displayNameInfo = document.createElement('span');
   displayNameInfo.classList.add('post-displayName-info');
-  displayNameInfo.innerText = post.data().name;
+  displayNameInfo.innerText = ` ${post.data().name} `;
   profileInfo.appendChild(displayNameInfo);
 
   const content = document.createElement('p');
