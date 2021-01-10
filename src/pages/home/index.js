@@ -1,5 +1,5 @@
 import { logOut } from '../../services/index.js';
-import { timelineTags, postTags } from './standard.js';
+import { timelineTags, postTags, navTags } from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
@@ -21,6 +21,12 @@ export const Home = () => {
     return templatePost;
   }
 
+  function loadNav() {
+    const containerNav = rootElement.querySelector('#profile-info');
+    const templateNav = navTags(containerNav);
+    return templateNav;
+  }
+
   function loadPosts() {
     const postCollection = firebase.firestore().collection('posts');
     postCollection.get().then((x) => {
@@ -38,11 +44,11 @@ export const Home = () => {
   //   });
   // }
 
-//  comentarios para não ter conflito
-//  comentarios para não ter conflito
-//  comentarios para não ter conflito
+  //  comentarios para não ter conflito
+  //  comentarios para não ter conflito
+  //  comentarios para não ter conflito
 
-    // function deletePost(postId) {
+  // function deletePost(postId) {
   //   const postCollection = firebase.firestore().collection('posts');
   //   postCollection.doc(postId).then((doc) => {
   //     doc.delete()
@@ -54,11 +60,13 @@ export const Home = () => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
+    const currentUserInfo = firebase.auth().currentUser;
     const numLikes = 0;
     const date = new Date();
     const post = {
-      name: firebase.auth().currentUser.displayName,
-      userId: firebase.auth().currentUser.uid,
+      name: currentUserInfo.displayName,
+      userId: currentUserInfo.uid,
+      photo: currentUserInfo.photoURL,
       text: textUser,
       likes: numLikes,
       comments: [],
@@ -73,10 +81,17 @@ export const Home = () => {
     });
   });
 
-  
-
-
+  //  comentarios para não ter conflito
+  //  comentarios para não ter conflito
+  //  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito//  comentarios para não ter conflito
+  //  comentarios para não ter conflito
+  loadNav();
   loadPosts();
-
   return rootElement;
 };
