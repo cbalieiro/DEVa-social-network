@@ -55,12 +55,15 @@ export const Home = () => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const numLikes = 0;
+    const date = new Date();
     const post = {
-      text: textUser,
+      name: firebase.auth().currentUser.displayName,
       userId: firebase.auth().currentUser.uid,
+      text: textUser,
       likes: numLikes,
       comments: [],
-      date: new Date(),
+      date: date.toLocaleString(),
+      time: date.getTime(),
     };
     const postCollection = firebase.firestore().collection('posts');
     postCollection.add(post).then(() => {

@@ -39,9 +39,23 @@ export const postTags = (post, containerPosts) => {
   const postBody = document.createElement('div');
   posts.classList.add('post-body');
 
+  const profileInfo = document.createElement('div');
+  profileInfo.classList.add('post-profile-info');
+
+  const profileImg = document.createElement('img');
+  profileImg.classList.add('post-img');
+  profileImg.src = firebase.auth().currentUser.photoURL;
+  profileInfo.appendChild(profileImg);
+
+  const displayNameInfo = document.createElement('span');
+  displayNameInfo.classList.add('post-displayName-info');
+  displayNameInfo.innerText = post.data().name;
+  profileInfo.appendChild(displayNameInfo);
+
   const content = document.createElement('p');
   content.classList.add('post-content');
-  content.innerText = post.data().text;
+  content.innerText = `${post.data().text}
+  ${post.data().date}  `;
 
   const btnArea = document.createElement('div');
   btnArea.classList.add('btns-area');
@@ -71,6 +85,7 @@ export const postTags = (post, containerPosts) => {
     btnArea.appendChild(btnDelete);
   }
 
+  postBody.appendChild(profileInfo);
   postBody.appendChild(content);
   postBody.appendChild(btnArea);
   posts.appendChild(postBody);
