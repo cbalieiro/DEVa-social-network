@@ -27,7 +27,20 @@ export const loginGoogle = () =>{
     firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(person);
   }).then(()=>{
     onNavigate('/home');
-  }).catch(function(error) {
+  }).then (() =>{
+    const user = firebase.auth().currentUser;
+
+    if (user != null) {
+      user.providerData.forEach(function (profile) {
+        const userData = {
+          Name: profile.displayName,
+          Email: profile.email,
+          Photo: profile.photoURL,
+        }
+      });
+     }
+  })
+  .catch(function(error) {
     var email = error.email;
     var credential = error.credential;
       
@@ -35,21 +48,29 @@ export const loginGoogle = () =>{
 };
 
 export const loginGitHub = () => {
-  var provider = new firebase.auth.GithubAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(() => {
-      const person = {
-        userName: firebase.auth().currentUser.displayName,
-        userId: firebase.auth().currentUser.uid,
-        email: firebase.auth().currentUser.email,
-        
-      };
-      firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(person);
-    }).then(()=>{
-      onNavigate('/home');
-    }).catch(function(error) {
-      var email = error.email;
-      var credential = error.credential;
-    });
+  const provider = new firebase.auth.GithubAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(() => {
+    const person = {
+      userName: firebase.auth().currentUser.displayName,
+      userId: firebase.auth().currentUser.uid,
+      email: firebase.auth().currentUser.email,
+    };
+    firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(person);
+  }).then(()=>{
+    onNavigate('/home');
+  }).then (() =>{
+    const user = firebase.auth().currentUser;
+    if (user != null) {
+      user.providerData.forEach(function (profile) {
+      const userData = {
+        Name: profile.displayName,
+        Email: profile.email,
+        Photo: profile.photoURL,
+      }
+      });
+    };
+  }).catch((error) => { error
+  });
 };
 
 export const persist = () => {
