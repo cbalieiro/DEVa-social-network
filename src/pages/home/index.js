@@ -60,7 +60,7 @@ export const Home = () => {
     const post = {
       name: currentUserInfo.displayName,
       userId: currentUserInfo.uid,
-      photo: currentUserInfo.photoURL
+      photo: currentUserInfo.photoURL,
       text: textUser,
       likes: numLikes,
       comments: [],
