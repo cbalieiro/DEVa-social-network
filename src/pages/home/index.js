@@ -38,12 +38,15 @@ export const Home = () => {
   rootElement.addEventListener('DOMContentLoad', loadPosts());
 
   function deletePost(postId) {
-    alert(postId);
-    // const postCollection = firebase.firestore().collection('posts');
-    // postCollection.doc(postId).then((doc) => {
-    //   doc.delete()
-    //     .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
-    // });
+    const confirmDelete = confirm('Tem certeza de que deseja excluir a postagem?');
+    if (confirmDelete === true) {
+      console.log(confirmDelete);
+      firebase.firestore().collection('posts').doc(postId).delete()
+        .then(() => {
+          const postFather = document.getElementById(`${postId}`);
+          postFather.remove();
+        });
+    }
   }
 
   function editPost(postId) {
@@ -73,7 +76,7 @@ export const Home = () => {
         break;
       default:
         message = 'não faça nada';
-    };
+    }
     return message;
   });
 
