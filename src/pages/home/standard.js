@@ -8,7 +8,7 @@ export const timelineTags = () => {
   <main>
     <div id='post-new'>
       <form id='post-form'>
-        <input type='text' id='post-text' width='100px' height='60px' minlength='3' maxlength="600"></input>
+        <input type='text' id='post-text' width='100px' height='60px' minlength='3' maxlength='600'></input>
         <button id='form-button' type='submit'>Publicar</button>
       </form>
     </div>
@@ -64,11 +64,13 @@ export const postTags = (post, containerPosts) => {
   const btnArea = document.createElement('div');
   btnArea.classList.add('btns-area');
 
-  const btnLikes = document.createElement('button');
-  btnLikes.classList.add('btn-like');
-  btnLikes.id = `btn-like-${post.id}`;
-  btnLikes.innerText = ' Curtir ';
-  btnArea.appendChild(btnLikes);
+  if (firebase.auth().currentUser.uid !== post.data().userId) {
+    const btnLikes = document.createElement('button');
+    btnLikes.classList.add('btn-like');
+    btnLikes.id = `btn-like-${post.id}`;
+    btnLikes.innerText = ' Curtir ';
+    btnArea.appendChild(btnLikes);
+  }
 
   const counterLikes = document.createElement('span');
   counterLikes.innerHTML = ` ❤️ ${post.data().likes} `;
