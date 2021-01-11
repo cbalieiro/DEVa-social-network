@@ -15,26 +15,54 @@ export const Home = () => {
 
   const clear = () => { rootElement.querySelector('#post-text').value = ' '; };
 
-  function addPost(post) {
-    const containerPosts = rootElement.querySelector('#post-list');
-    const templatePost = postTags(post, containerPosts);
-    return templatePost;
-  }
-
   function loadNav() {
     const containerNav = rootElement.querySelector('#profile-info');
     const templateNav = navTags(containerNav);
     return templateNav;
   }
 
+  function addPost(post) {
+    const containerPosts = rootElement.querySelector('#post-list');
+    const templatePost = postTags(post, containerPosts);
+    return templatePost;
+  }
+
   function loadPosts() {
-    const postCollection = firebase.firestore().collection('posts');
+    const postCollection = firebase.firestore().collection('posts').orderBy('date', 'desc');
     postCollection.get().then((x) => {
       x.forEach((post) => {
         addPost(post);
       });
     });
   }
+  rootElement.addEventListener('DOMContentLoad', loadPosts());
+
+  rootElement.addEventListener('click', (e) => {
+    const infoClick = e.target;
+    const className = infoClick.className;
+    const id = infoClick.id;
+    const arrayId = id.split('-');
+    // console.log(arrayId[2])
+    let message = '';
+
+    switch (className) {
+      case 'btn-like':
+        message = 'btn-like';
+        break;
+      case 'btn-edit':
+        message = 'btn-edit';
+        break;
+      case 'btn-delete':
+        message = 'btn-delete';
+        break;
+      default:
+        message = "bla bla"
+    }
+    console.log(message);
+  });
+
+  // const deletePost = rootElement.querySelector();
+  // console.log(deletePost);
 
   // function deletePost(postId) {
   //   const postCollection = firebase.firestore().collection('posts');
@@ -63,22 +91,26 @@ export const Home = () => {
     const currentUserInfo = firebase.auth().currentUser;
     const numLikes = 0;
     const date = new Date();
-    const post = {
-      name: currentUserInfo.displayName,
-      userId: currentUserInfo.uid,
-      photo: currentUserInfo.photoURL,
-      text: textUser,
-      likes: numLikes,
-      comments: [],
-      date: date.toLocaleString(),
-      time: date.getTime(),
-    };
-    const postCollection = firebase.firestore().collection('posts');
-    postCollection.add(post).then(() => {
-      clear();
-      rootElement.querySelector('#post-list').innerHTML = ' ';
-      loadPosts();
-    });
+    if (textUser === null || textUser === undefined || textUser === '') {
+      alert('Não é possível fazer postagens em branco');
+    } else {
+      const post = {
+        name: currentUserInfo.displayName,
+        userId: currentUserInfo.uid,
+        photo: currentUserInfo.photoURL,
+        text: textUser,
+        likes: numLikes,
+        comments: [],
+        date: date.toLocaleString(),
+        time: date.getTime(),
+      };
+      const postCollection = firebase.firestore().collection('posts');
+      postCollection.add(post).then(() => {
+        clear();
+        rootElement.querySelector('#post-list').innerHTML = ' ';
+        loadPosts();
+      });
+    }
   });
 
   //  comentarios para não ter conflito
@@ -91,7 +123,7 @@ export const Home = () => {
   //  comentarios para não ter conflito//  comentarios para não ter conflito
   //  comentarios para não ter conflito//  comentarios para não ter conflito
   //  comentarios para não ter conflito
+
   loadNav();
-  loadPosts();
   return rootElement;
 };
