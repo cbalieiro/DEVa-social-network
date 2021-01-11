@@ -37,52 +37,45 @@ export const Home = () => {
   }
   rootElement.addEventListener('DOMContentLoad', loadPosts());
 
+  function deletePost(postId) {
+    alert(postId);
+    // const postCollection = firebase.firestore().collection('posts');
+    // postCollection.doc(postId).then((doc) => {
+    //   doc.delete()
+    //     .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
+    // });
+  }
+
+  function editPost(postId) {
+    alert(postId);
+  }
+
+  function likePost(postId) {
+    alert(postId);
+  }
+
   rootElement.addEventListener('click', (e) => {
     const infoClick = e.target;
     const className = infoClick.className;
     const id = infoClick.id;
     const arrayId = id.split('-');
-    // console.log(arrayId[2])
     let message = '';
 
     switch (className) {
       case 'btn-like':
-        message = 'btn-like';
+        likePost(arrayId[2]);
         break;
       case 'btn-edit':
-        message = 'btn-edit';
+        editPost(arrayId[2]);
         break;
       case 'btn-delete':
-        message = 'btn-delete';
+        deletePost(arrayId[2]);
         break;
       default:
-        message = "bla bla"
-    }
-    console.log(message);
+        message = 'não faça nada';
+    };
+    return message;
   });
-
-  // const deletePost = rootElement.querySelector();
-  // console.log(deletePost);
-
-  // function deletePost(postId) {
-  //   const postCollection = firebase.firestore().collection('posts');
-  //   postCollection.doc(postId).then((doc) => {
-  //     doc.delete()
-  //       .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
-  //   });
-  // }
-
-  //  comentarios para não ter conflito
-  //  comentarios para não ter conflito
-  //  comentarios para não ter conflito
-
-  // function deletePost(postId) {
-  //   const postCollection = firebase.firestore().collection('posts');
-  //   postCollection.doc(postId).then((doc) => {
-  //     doc.delete()
-  //       .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
-  //   });
-  // }
 
   const postForm = rootElement.querySelector('#post-form');
   postForm.addEventListener('submit', (e) => {
