@@ -84,8 +84,8 @@ export const Home = () => {
       buttonLike.nextSibling.innerHTML = ' ';
     })
     .then (()=>{
-      
-      buttonLike.nextSibling.innerHTML = `❤️ ${likes}`;
+      firebase.firestore().collection('posts').doc(postId).get(likes);
+      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `;
       console.log(buttonLike.nextSibling.innerHTML);
       
     });
