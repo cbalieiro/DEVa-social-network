@@ -1,4 +1,5 @@
 import { logOut } from '../../services/index.js';
+import { onNavigate } from '../../utils/history.js';
 import { timelineTags, postTags, navTags } from './standard.js';
 
 export const Home = () => {
@@ -38,12 +39,15 @@ export const Home = () => {
   rootElement.addEventListener('DOMContentLoad', loadPosts());
 
   function deletePost(postId) {
-    alert(postId);
-    // const postCollection = firebase.firestore().collection('posts');
-    // postCollection.doc(postId).then((doc) => {
-    //   doc.delete()
-    //     .then(rootElement.querySelector(`#${postId}`).removeChild('div'));
-    // });
+    const confirmDelete = confirm('Tem certeza de que deseja excluir a postagem?');
+    if (confirmDelete === true) {
+      console.log(confirmDelete);
+      firebase.firestore().collection('posts').doc(postId).delete()
+        .then(() => {
+          const postFather = document.getElementById(`${postId}`);
+          postFather.remove();
+        });
+    }
   }
 
   function editPost(postId) {
@@ -51,7 +55,19 @@ export const Home = () => {
   }
 
   function likePost(postId) {
-    alert(postId);
+    const buttonLike = document.getElementById(`btn-like-${postId}`);
+    const likes = firebase.firestore().collection('posts').doc(postId).update({
+      likes: firebase.firestore.FieldValue.increment(1)
+    })
+    .then(()=>{   
+      buttonLike.nextSibling.innerHTML = ' ';
+    })
+    .then (()=>{
+      
+      buttonLike.nextSibling.innerHTML = `❤️ ${likes}`;
+      console.log(buttonLike.nextSibling.innerHTML);
+      
+    });
   }
 
   rootElement.addEventListener('click', (e) => {

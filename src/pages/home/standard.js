@@ -77,32 +77,6 @@ export const postTags = (post, containerPosts) => {
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
 
-  const clearLike = ()=> {
-    btnArea.removeChild(counterLikes);
-    
-  }; 
-
-  
-  btnLikes.addEventListener('click', () =>{
-    const likes = firebase.firestore().collection('posts').doc(post.id);
-    likes.update({
-      likes: firebase.firestore.FieldValue.increment(1)
-    })
-    .then(()=>{
-      clearLike();
-      const newLikes = firebase.firestore().collection('posts').doc(post.id).get(post.data().likes)
-      const newCounterLikes = document.createElement('span');
-      newCounterLikes.innerHTML = ` ❤️ ${newLikes} `;
-      newCounterLikes.classList.add('counter-likes');
-      btnArea.appendChild(newCounterLikes);
-      
-    })
-  
-  });
-
-  
-
-
   if (firebase.auth().currentUser.uid === post.data().userId) {
     const btnEdit = document.createElement('button');
     btnEdit.classList.add('btn-edit');
