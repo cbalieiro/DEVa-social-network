@@ -77,19 +77,34 @@ export const Home = () => {
 
   function likePost(postId) {
     const buttonLike = document.getElementById(`btn-like-${postId}`);
-    const likes = firebase.firestore().collection('posts').doc(postId).update({
-      likes: firebase.firestore.FieldValue.increment(1)
-    })
-    .then(()=>{   
-      buttonLike.nextSibling.innerHTML = ' ';
-    })
-    .then (()=>{
-      firebase.firestore().collection('posts').doc(postId).get(likes);
-      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `;
-      console.log(buttonLike.nextSibling.innerHTML);
+    let contadorClick = 0;
+    const userClick = [];
+    const usersLikes = userClick.unshift(firebase.auth().currentUser.displayName);
+    const usersNames = userClick.join(',');
+    console.log(usersNames);
+    
+    if (contadorClick == 0) {
       
-    });
-  }
+      const likes = firebase.firestore().collection('posts').doc(postId).update({
+        likes: firebase.firestore.FieldValue.increment(1)
+      })
+      .then(()=>{   
+        buttonLike.nextSibling.innerHTML = ' ';
+      })
+      .then (()=>{
+        firebase.firestore().collection('posts').doc(postId).get(likes);
+        buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `;
+        console.log(buttonLike.nextSibling.innerHTML);
+      }) 
+      contadorClick +=1;
+      console.log(contadorClick);
+    }else{
+      
+      console.log("tira like");
+      contadorClick = 0;
+    }
+    
+  };
 
   document.addEventListener('click', (e) => {
     const infoClick = e.target;
@@ -122,7 +137,7 @@ export const Home = () => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const currentUserInfo = firebase.auth().currentUser;
-    const numLikes = 0;
+    const numLikes = [];
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
       alert('Não é possível fazer postagens em branco');
