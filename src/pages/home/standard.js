@@ -58,8 +58,13 @@ export const postTags = (post, containerPosts) => {
 
   const content = document.createElement('p');
   content.classList.add('post-content');
-  content.innerText = `${post.data().text}
-  ${post.data().date}  `;
+  content.id = `post-content-${post.id}`;
+  content.innerText = `${post.data().text}`;
+
+  const date = document.createElement('p');
+  date.classList.add('post-date');
+  date.id = `post-date-${post.id}`;
+  date.innerText = `${post.data().date}`;
 
   const btnArea = document.createElement('div');
   btnArea.classList.add('btns-area');
@@ -93,6 +98,7 @@ export const postTags = (post, containerPosts) => {
 
   postBody.appendChild(profileInfo);
   postBody.appendChild(content);
+  postBody.appendChild(date);
   postBody.appendChild(btnArea);
   posts.appendChild(postBody);
   containerPosts.appendChild(posts);
@@ -124,4 +130,31 @@ export const navTags = (containerNav) => {
   profileBody.appendChild(displayNameInfo);
 
   containerNav.appendChild(profileBody);
+};
+
+export const editPostAtt = (postId, classId) => {
+  const btnEdit = document.getElementById(`${classId}-${postId}`);
+  const theClassList = document.getElementById(`${classId}-${postId}`).classList;
+  theClassList.remove(classId);
+  if (classId === 'btn-edit') {
+    btnEdit.classList.add('btn-submitEdit');
+    btnEdit.id = `btn-submitEdit-${postId}`;
+    btnEdit.innerText = ' Publicar ';
+  }
+  if (classId === 'btn-submitEdit') {
+    btnEdit.classList.add('btn-edit');
+    btnEdit.id = `btn-edit-${postId}`;
+    btnEdit.innerText = ' Editar ';
+  }
+  const content = document.getElementById(postId);
+  const idPostContent = content.firstElementChild.childNodes[1].id;
+  const contentChange = document.getElementById(idPostContent);
+  if (classId === 'btn-edit') {
+    contentChange.setAttribute('contenteditable', 'true');
+    contentChange.setAttribute('style', 'background-color: #D9D9D9;');
+  }
+  if (classId === 'btn-submitEdit') {
+    contentChange.removeAttribute('contenteditable');
+    contentChange.removeAttribute('style');
+  }
 };
