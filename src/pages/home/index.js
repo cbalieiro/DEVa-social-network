@@ -1,6 +1,5 @@
 import { logOut } from '../../services/index.js';
-import { onNavigate } from '../../utils/history.js';
-import { timelineTags, postTags, navTags } from './standard.js';
+import { timelineTags, postTags, navTags, editPostAtt,} from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
@@ -50,8 +49,30 @@ export const Home = () => {
     }
   }
 
-  function editPost(postId) {
-    alert(postId);
+  function editPost(postId, classId) {
+    return editPostAtt(postId, classId);
+  }
+
+  function updatePost(postId, classId) {
+    const content = document.getElementById(postId);
+    const idPostContent = content.firstElementChild.childNodes[1].id;
+    const textUser = document.getElementById(idPostContent).textContent;
+    const date = new Date();
+    if (textUser === null || textUser === undefined || textUser === '') {
+      alert('Não é possível fazer postagens em branco');
+    } else {
+      firebase.firestore().collection('posts').doc(`${postId}`).update({
+        text: textUser,
+        date: date.toLocaleString(),
+        time: date.getTime(),
+      })
+        .then(() => { editPostAtt(postId, classId); })
+        .then(() => {
+          clear();
+          rootElement.querySelector('#post-list').innerHTML = ' ';
+          loadPosts();
+        });
+    }
   }
 
   function likePost(postId) {
@@ -70,7 +91,7 @@ export const Home = () => {
     });
   }
 
-  rootElement.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
     const infoClick = e.target;
     const className = infoClick.className;
     const id = infoClick.id;
@@ -82,14 +103,17 @@ export const Home = () => {
         likePost(arrayId[2]);
         break;
       case 'btn-edit':
-        editPost(arrayId[2]);
+        editPost(arrayId[2], className);
         break;
       case 'btn-delete':
         deletePost(arrayId[2]);
         break;
+      case 'btn-submitEdit':
+        updatePost(arrayId[2], className);
+        break;
       default:
         message = 'não faça nada';
-    };
+    }
     return message;
   });
 
