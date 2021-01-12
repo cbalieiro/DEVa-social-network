@@ -64,7 +64,7 @@ export const postTags = (post, containerPosts) => {
   const date = document.createElement('p');
   date.classList.add('post-date');
   date.id = `post-date-${post.id}`;
-  date.innerText = `${post.data().date}`;
+  date.innerText = `${new Date(post.data().date).toLocaleString()}`;
 
   const btnArea = document.createElement('div');
   btnArea.classList.add('btns-area');
@@ -133,6 +133,9 @@ export const navTags = (containerNav) => {
 };
 
 export const editPostAtt = (postId, classId) => {
+  const date = document.getElementById(`post-date-${postId}`);
+  const currentDate = new Date().getTime();
+
   const btnEdit = document.getElementById(`${classId}-${postId}`);
   const theClassList = document.getElementById(`${classId}-${postId}`).classList;
   theClassList.remove(classId);
@@ -156,5 +159,6 @@ export const editPostAtt = (postId, classId) => {
   if (classId === 'btn-submitEdit') {
     contentChange.removeAttribute('contenteditable');
     contentChange.removeAttribute('style');
+    date.innerText = `${new Date(currentDate).toLocaleString()}`;
   }
 };
