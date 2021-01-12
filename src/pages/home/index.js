@@ -37,12 +37,10 @@ export const Home = () => {
       });
     });
   }
-  rootElement.addEventListener('DOMContentLoad', loadPosts());
 
   function deletePost(postId) {
     const confirmDelete = confirm('Tem certeza de que deseja excluir a postagem?');
     if (confirmDelete === true) {
-      console.log(confirmDelete);
       firebase.firestore().collection('posts').doc(postId).delete()
         .then(() => {
           const postFather = document.getElementById(`${postId}`);
@@ -65,15 +63,9 @@ export const Home = () => {
     } else {
       firebase.firestore().collection('posts').doc(`${postId}`).update({
         text: textUser,
-        date: date.toLocaleString(),
-        time: date.getTime(),
+        date: date.getTime(),
       })
-        .then(() => { editPostAtt(postId, classId); })
-        .then(() => {
-          clear();
-          rootElement.querySelector('#post-list').innerHTML = ' ';
-          loadPosts();
-        });
+        .then(() => { editPostAtt(postId, classId); });
     }
   }
 
@@ -124,8 +116,7 @@ export const Home = () => {
         text: textUser,
         likes: numLikes,
         comments: [],
-        date: date.toLocaleString(),
-        time: date.getTime(),
+        date: date.getTime(),
       };
       const postCollection = firebase.firestore().collection('posts');
       postCollection.add(post).then(() => {
@@ -136,17 +127,7 @@ export const Home = () => {
     }
   });
 
-  //  comentarios para não ter conflito
-  //  comentarios para não ter conflito
-  //  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito//  comentarios para não ter conflito
-  //  comentarios para não ter conflito
-
   loadNav();
+  loadPosts();
   return rootElement;
 };
