@@ -1,18 +1,44 @@
-body{
+body {
     background-color: #fff;
     font-family: 'Monda', sans-serif;
     font-size: 16px;
+    margin: 0;
 }
 
-img.logo{
+img.logo {
     width: 86px;
 }
 
-img.image-desktop{
+header.home {
+    display: flex;
+    background-color: #8293A8;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img.logo-home {
+    width: 50px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+button#sgnOutBtn {
+    width: 70px;
+    height: 30px;
+    background-color: #8293A8;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+img.image-desktop {
     display: none;
 }
 
-div.main-login, div.google-github-login, div.main-register, div.register, div.login-data{
+div.main-login, div.google-github-login, div.main-register, div.register, div.login-data {
     display: flex;
     flex-direction: column;
     justify-content: center;

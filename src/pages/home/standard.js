@@ -1,7 +1,8 @@
 export const timelineTags = () => {
   const template = `
-  <header>
-    <button id='sgnOutBtn' type='submit'>Logout</button>
+  <header class="home">
+    <img class="logo-home" src="../../images/logo-deva.png"/>
+    <button id='sgnOutBtn' type='submit'>SAIR</button>
   </header>
   <nav id='profile-info'>
   </nav>
