@@ -7,7 +7,7 @@ export const Home = () => {
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
-  const logoutButton = rootElement.querySelector('.sgnOutBtn');
+  const logoutButton = rootElement.querySelector('#sgnOutBtn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
