@@ -69,7 +69,12 @@ export const postTags = (post, containerPosts) => {
   const btnArea = document.createElement('div');
   btnArea.classList.add('btns-area');
 
-  if (firebase.auth().currentUser.uid !== post.data().userId) {
+  const currentUser = firebase.auth().currentUser.uid;
+  const found = post.data().likes;
+  const result = found.find((element) => element === currentUser);
+  console.log(result);
+
+  if (currentUser !== post.data().userId && currentUser !== result) {
     const btnLikes = document.createElement('button');
     btnLikes.classList.add('btn-like');
     btnLikes.id = `btn-like-${post.id}`;
@@ -77,12 +82,24 @@ export const postTags = (post, containerPosts) => {
     btnArea.appendChild(btnLikes);
   }
 
+  if (currentUser !== post.data().userId && currentUser === result) {
+    const btndislike = document.createElement('button');
+    btndislike.classList.add('btn-dislike');
+    btndislike.id = `btn-dislike-${post.id}`;
+    btndislike.innerText = ' Não Curti';
+    btnArea.appendChild(btndislike);
+  }
+
   const counterLikes = document.createElement('span');
+<<<<<<< HEAD
   if (post.data().likes.length === undefined){
     counterLikes.innerHTML = ` ❤️ ${0} `;
   }else{
     counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
   }
+=======
+  counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
+>>>>>>> 9608b841150587850839f54903777f265a0f1229
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
 

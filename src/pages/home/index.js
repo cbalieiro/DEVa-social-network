@@ -111,6 +111,10 @@ export const Home = () => {
   };
 
 
+  function dislikePost(postId) {
+    alert(postId);
+  }
+
   document.addEventListener('click', (e) => {
     const infoClick = e.target;
     const className = infoClick.className;
@@ -121,6 +125,9 @@ export const Home = () => {
     switch (className) {
       case 'btn-like':
         likePost(arrayId[2]);
+        break;
+      case 'btn-dislike':
+        dislikePost(arrayId[2]);
         break;
       case 'btn-edit':
         editPost(arrayId[2], className);
