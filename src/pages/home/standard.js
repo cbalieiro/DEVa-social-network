@@ -4,15 +4,17 @@ export const timelineTags = () => {
     <img class="logo-home" src="../../images/logo-deva.png"/>
     <button id='sgnOutBtn' type='submit'>SAIR</button>
   </header>
-  <nav id='profile-info'>
-  </nav>
-  <main>
+  <div class="post-profile">
+    <nav id='profile-info'>
+    </nav>
     <div id='post-new'>
       <form id='post-form'>
-        <input type='text' id='post-text' width='100px' height='60px' minlength='3' maxlength='600'></input>
+        <input type='text' id='post-text' placeholder="O que gostaria de compartilhar?"></input>
         <button id='form-button' type='submit'>Publicar</button>
       </form>
     </div>
+  </div>
+  <main>
     <div id='post-list'>
     </div>
   </main>
