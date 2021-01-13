@@ -7,7 +7,7 @@ export const Home = () => {
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
-  const logoutButton = rootElement.querySelectorAll('.sgnOutBtn');
+  const logoutButton = rootElement.querySelector('.sgnOutBtn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
@@ -86,34 +86,32 @@ export const Home = () => {
       buttonLike.nextSibling.innerHTML = ' ';
     })
     .then (()=>{
-      postCollection.doc(postId).get(postId.data().likes);
-      console.log(likes);
-      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes.length} `; 
+      // postCollection.doc(postId).get(postId.data().likes);
+      // console.log(likes);
+      // buttonLike.nextSibling.innerHTML = ` ❤️ ${likes.length} `; 
+      
       console.log('colocou um like');
-    }) 
+    })
+    
   };
 
   function dislikePost (postId){
-    const buttonLike = document.getElementById(`btn-like-${postId}`);
+    const buttonDislike = document.getElementById(`btn-dislike-${postId}`);
     const usersLikes = firebase.auth().currentUser.uid;
     postCollection.doc(postId).update({
       likes: firebase.firestore.FieldValue.arrayRemove(usersLikes)
     })
     .then(()=>{   
-      buttonLike.nextSibling.innerHTML = ' ';
+      buttonDislike.nextSibling.innerHTML = ' ';
     })
     .then (()=>{
-      const likes = postCollection.doc(postId).get(post.data().likes.length);
-      console.log(likes);
-      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `; 
+      // const likes = postCollection.doc(postId).get(post.data().likes.length);
+      // console.log(likes);
+      // buttonDislike.nextSibling.innerHTML = ` ❤️ ${likes} `; 
       console.log('tirou o like');
+      
     }) 
   };
-
-
-  function dislikePost(postId) {
-    alert(postId);
-  }
 
   document.addEventListener('click', (e) => {
     const infoClick = e.target;

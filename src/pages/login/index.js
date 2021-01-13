@@ -22,10 +22,10 @@ export const Login = () => {
     validation(person);
     persist(person);
 
-    if (firebase.auth().currentUser !== null){
-      rootElement.querySelector('#header-apear')
-      .classList.remove('.header-login')
-      .classList.add('.headerLogged');
+    // if (firebase.auth().currentUser !== null){
+    //   rootElement.querySelector('#header-apear')
+    //   .classList.remove('.header-login')
+    //   .classList.add('.headerLogged');
       // const logoutButton = rootElement.querySelectorAll('.sgnOutBtn');
       // logoutButton.addEventListener('click', (e) => {
       //   e.preventDefault();
@@ -36,7 +36,7 @@ export const Login = () => {
     //     e.preventDefault();
     //     onNavigate('/home');
     // })
-    };
+    // };
   });
 
   googleButton.addEventListener('click', (e) => {
