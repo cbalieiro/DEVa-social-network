@@ -1,7 +1,7 @@
 export const timelineTags = () => {
   const template = `
   <header>
-    <button class='sgnOutBtn' type='submit'>Logout</button>
+    <button id='sgnOutBtn' type='submit'>Logout</button>
   </header>
   <nav id='profile-info'>
   </nav>

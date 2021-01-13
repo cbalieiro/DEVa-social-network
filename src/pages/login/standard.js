@@ -1,9 +1,6 @@
 export const loginTags = () => {
   const template = `
-  <header class='header-login' id='header-apear'>
-    <button class='sgnOutBtn' type='submit'>Logout</button>
-    <button class='home' id='homeBtn' type='submit'>Home</button>
-  </header>
+  
   <div class="main-login">
     <div class="login-images">
       <img class="logo" src="../../images/logo-deva.png"/>

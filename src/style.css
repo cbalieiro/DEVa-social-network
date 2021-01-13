@@ -109,10 +109,3 @@ a.register {
     }
 }
 
-.header-login{
-    display: none;
-}
-
-.header-logged{
-    display:block;
-}
