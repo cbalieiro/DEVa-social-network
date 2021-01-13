@@ -92,7 +92,11 @@ export const loginGitHub = () => {
 };
 
 export const persist = () => {
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(()=>{
+    console.log('persistiu');
+  })
+
 };
 
 export const createUser = (person) => {

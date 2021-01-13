@@ -7,11 +7,13 @@ export const Home = () => {
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
-  const logoutButton = rootElement.querySelector('#sgnOutBtn');
+  const logoutButton = rootElement.querySelectorAll('.sgnOutBtn');
   logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
   });
+
+  const postCollection = firebase.firestore().collection('posts');
 
   const clear = () => { rootElement.querySelector('#post-text').value = ' '; };
 
@@ -28,8 +30,9 @@ export const Home = () => {
   }
 
   function loadPosts() {
-    const postCollection = firebase.firestore().collection('posts').orderBy('date', 'desc');
-    postCollection.get().then((x) => {
+    postCollection
+    .orderBy('date', 'desc')
+    .get().then((x) => {
       x.forEach((post) => {
         addPost(post);
       });
@@ -39,11 +42,13 @@ export const Home = () => {
   function deletePost(postId) {
     const confirmDelete = confirm('Tem certeza de que deseja excluir a postagem?');
     if (confirmDelete === true) {
-      firebase.firestore().collection('posts').doc(postId).delete()
-        .then(() => {
+      postCollection
+      .doc(postId)
+      .delete()
+      .then(() => {
           const postFather = document.getElementById(`${postId}`);
           postFather.remove();
-        });
+      });
     }
   }
 
@@ -59,7 +64,9 @@ export const Home = () => {
     if (textUser === null || textUser === undefined || textUser === '') {
       alert('Não é possível fazer postagens em branco');
     } else {
-      firebase.firestore().collection('posts').doc(`${postId}`).update({
+      postCollection
+      .doc(`${postId}`)
+      .update({
         text: textUser,
         date: date.getTime(),
       })
@@ -69,34 +76,40 @@ export const Home = () => {
 
   function likePost(postId) {
     const buttonLike = document.getElementById(`btn-like-${postId}`);
-    let contadorClick = 0;
-    const userClick = [];
-    const usersLikes = userClick.unshift(firebase.auth().currentUser.displayName);
-    const usersNames = userClick.join(',');
-    console.log(usersNames);
-    
-    if (contadorClick == 0) {
-      
-      const likes = firebase.firestore().collection('posts').doc(postId).update({
-        likes: firebase.firestore.FieldValue.increment(1)
-      })
-      .then(()=>{   
-        buttonLike.nextSibling.innerHTML = ' ';
-      })
-      .then (()=>{
-        firebase.firestore().collection('posts').doc(postId).get(likes);
-        buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `;
-        console.log(buttonLike.nextSibling.innerHTML);
-      }) 
-      contadorClick +=1;
-      console.log(contadorClick);
-    }else{
-      
-      console.log("tira like");
-      contadorClick = 0;
-    }
-    
+    const usersLikes = firebase.auth().currentUser.uid;
+    postCollection
+    .doc(postId)
+    .update({
+      likes: firebase.firestore.FieldValue.arrayUnion(usersLikes)
+    })
+    .then(()=>{   
+      buttonLike.nextSibling.innerHTML = ' ';
+    })
+    .then (()=>{
+      postCollection.doc(postId).get(postId.data().likes);
+      console.log(likes);
+      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes.length} `; 
+      console.log('colocou um like');
+    }) 
   };
+
+  function dislikePost (postId){
+    const buttonLike = document.getElementById(`btn-like-${postId}`);
+    const usersLikes = firebase.auth().currentUser.uid;
+    postCollection.doc(postId).update({
+      likes: firebase.firestore.FieldValue.arrayRemove(usersLikes)
+    })
+    .then(()=>{   
+      buttonLike.nextSibling.innerHTML = ' ';
+    })
+    .then (()=>{
+      const likes = postCollection.doc(postId).get(post.data().likes.length);
+      console.log(likes);
+      buttonLike.nextSibling.innerHTML = ` ❤️ ${likes} `; 
+      console.log('tirou o like');
+    }) 
+  };
+
 
   document.addEventListener('click', (e) => {
     const infoClick = e.target;
@@ -129,7 +142,6 @@ export const Home = () => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const currentUserInfo = firebase.auth().currentUser;
-    const numLikes = [];
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
       alert('Não é possível fazer postagens em branco');
@@ -139,11 +151,11 @@ export const Home = () => {
         userId: currentUserInfo.uid,
         photo: currentUserInfo.photoURL,
         text: textUser,
-        likes: numLikes,
+        likes: [],
         comments: [],
         date: date.getTime(),
       };
-      const postCollection = firebase.firestore().collection('posts');
+      
       postCollection.add(post).then(() => {
         clear();
         rootElement.querySelector('#post-list').innerHTML = ' ';

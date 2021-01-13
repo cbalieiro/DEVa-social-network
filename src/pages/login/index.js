@@ -21,6 +21,22 @@ export const Login = () => {
     };
     validation(person);
     persist(person);
+
+    if (firebase.auth().currentUser !== null){
+      rootElement.querySelector('#header-apear')
+      .classList.remove('.header-login')
+      .classList.add('.headerLogged');
+      // const logoutButton = rootElement.querySelectorAll('.sgnOutBtn');
+      // logoutButton.addEventListener('click', (e) => {
+      //   e.preventDefault();
+      //   logOut();
+      // });
+    //   const homeBtn = rootElement.querySelector('#homeBtn');
+    //   homeBtn.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     onNavigate('/home');
+    // })
+    };
   });
 
   googleButton.addEventListener('click', (e) => {
@@ -34,6 +50,10 @@ export const Login = () => {
     loginGitHub();
     persist();
   });
+  
+
+  
+  
 
   signUpButton.addEventListener('click', (e) => {
     e.preventDefault();

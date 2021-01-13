@@ -108,3 +108,11 @@ a.register {
         margin-left: 3px;
     }
 }
+
+.header-login{
+    display: none;
+}
+
+.header-logged{
+    display:block;
+}

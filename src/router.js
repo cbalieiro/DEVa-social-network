@@ -2,9 +2,14 @@
 import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { Register } from './pages/register/index.js';
+import { persist } from './services/index.js';
 import { onNavigate } from './utils/history.js';
 
-window.addEventListener('load', () => { onNavigate('/'); });
+
+window.addEventListener('load', () => { 
+  onNavigate('/'); 
+  persist();
+});
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -25,12 +30,14 @@ window.addEventListener('load', () => {
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/');
+      persist();
     });
   document
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/home');
+      persist();
     });
   document
     .getElementById('register')

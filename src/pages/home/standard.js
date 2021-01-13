@@ -1,7 +1,7 @@
 export const timelineTags = () => {
   const template = `
   <header>
-    <button class='logOut' id='sgnOutBtn' type='submit'>Logout</button>
+    <button class='sgnOutBtn' type='submit'>Logout</button>
   </header>
   <nav id='profile-info'>
   </nav>
@@ -78,7 +78,11 @@ export const postTags = (post, containerPosts) => {
   }
 
   const counterLikes = document.createElement('span');
-  counterLikes.innerHTML = ` ❤️ ${post.data().likes} `;
+  if (post.data().likes.length === undefined){
+    counterLikes.innerHTML = ` ❤️ ${0} `;
+  }else{
+    counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
+  }
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
 
