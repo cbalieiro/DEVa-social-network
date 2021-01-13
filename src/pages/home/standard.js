@@ -1,7 +1,7 @@
 export const timelineTags = () => {
   const template = `
   <header>
-    <button class='logOut' id='sgnOutBtn' type='submit'>Logout</button>
+    <button class='sgnOutBtn' type='submit'>Logout</button>
   </header>
   <nav id='profile-info'>
   </nav>
@@ -71,7 +71,7 @@ export const postTags = (post, containerPosts) => {
 
   const currentUser = firebase.auth().currentUser.uid;
   const found = post.data().likes;
-  const result = found.find((element) => element === currentUser);
+  const result = found.find(element => element === currentUser);
   console.log(result);
 
   if (currentUser !== post.data().userId && currentUser !== result) {
@@ -86,12 +86,16 @@ export const postTags = (post, containerPosts) => {
     const btndislike = document.createElement('button');
     btndislike.classList.add('btn-dislike');
     btndislike.id = `btn-dislike-${post.id}`;
-    btndislike.innerText = ' Não Curti';
+    btndislike.innerText = ' Descurtir';
     btnArea.appendChild(btndislike);
   }
 
   const counterLikes = document.createElement('span');
-  counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
+  if (post.data().likes.length === undefined){
+    counterLikes.innerHTML = ` ❤️ ${0} `;
+  }else{
+    counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
+  }
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
 
