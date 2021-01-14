@@ -1,6 +1,30 @@
 import { onNavigate } from '../utils/history.js';
 import { errors } from './errors.js';
 
+export const currentUser = () => firebase.auth().currentUser;
+
+export const collectionPosts = () => firebase.firestore().collection('posts').orderBy('date', 'desc').get();
+
+export const createPost = (post) => firebase.firestore().collection('posts').add(post);
+
+export const editPostDB = (postId, updateDB) => firebase.firestore().collection('posts').doc(postId)
+  .update({
+    text: updateDB.text,
+    date: updateDB.date,
+  });
+
+export const updateLike = (postId, userID) => firebase.firestore().collection('posts').doc(postId)
+  .update({
+    likes: firebase.firestore.FieldValue.arrayUnion(userID),
+  });
+
+export const updateDislike = (postId, userID) => firebase.firestore().collection('posts').doc(postId)
+  .update({
+    likes: firebase.firestore.FieldValue.arrayRemove(userID),
+  });
+
+export const deletePostDB = (postId) => firebase.firestore().collection('posts').doc(postId).delete();
+
 export const validation = (person) => {
   firebase
     .auth()
@@ -35,7 +59,7 @@ export const loginGoogle = () => {
     .then(() => {
       const user = firebase.auth().currentUser;
       if (user != null) {
-        user.providerData.forEach(function (profile) {
+        user.providerData.forEach((profile) => {
           const userData = {
             Name: profile.displayName,
             Email: profile.email,
@@ -45,10 +69,12 @@ export const loginGoogle = () => {
       }
     })
     .then(() => {
-      if(firebase.auth().currentUser.emailVerified === false){
+      if (firebase.auth().currentUser.emailVerified === false) {
         firebase.auth().currentUser.sendEmailVerification();
-        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
-      }else{
+        alert(
+          'Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro',
+        );
+      } else {
         onNavigate('/home');
       }
     })
@@ -75,7 +101,7 @@ export const loginGitHub = () => {
     .then(() => {
       const user = firebase.auth().currentUser;
       if (user != null) {
-        user.providerData.forEach(function (profile) {
+        user.providerData.forEach((profile) => {
           const userData = {
             Name: profile.displayName,
             Email: profile.email,
@@ -85,10 +111,12 @@ export const loginGitHub = () => {
       }
     })
     .then(() => {
-      if(firebase.auth().currentUser.emailVerified === false){
+      if (firebase.auth().currentUser.emailVerified === false) {
         firebase.auth().currentUser.sendEmailVerification();
-        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
-      }else{
+        alert(
+          'Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro',
+        );
+      } else {
         onNavigate('/home');
       }
     })
@@ -96,10 +124,12 @@ export const loginGitHub = () => {
 };
 
 export const persist = () => {
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(()=>{
-    console.log('persistiu');
-  })
+  firebase
+    .auth()
+    .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
+      console.log('persistiu');
+    });
 };
 
 export const createUser = (person) => {
@@ -120,15 +150,17 @@ export const createUser = (person) => {
     })
     .then(() => {
       firebase.auth().currentUser.sendEmailVerification();
-      alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+      alert(
+        'Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro',
+      );
     })
-    .then (() => {
-        onNavigate('/');
+    .then(() => {
+      onNavigate('/');
     })
-    .then(() =>{
+    .then(() => {
       firebase.auth().currentUser.updateProfile({
-        userId: firebase.auth().currentUser
-      })
+        userId: firebase.auth().currentUser,
+      });
     })
     .catch((error) => errors(error));
 };
