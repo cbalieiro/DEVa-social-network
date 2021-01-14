@@ -1,18 +1,20 @@
-body{
+body {
     background-color: #fff;
     font-family: 'Monda', sans-serif;
     font-size: 16px;
+    margin: 0;
 }
 
-img.logo{
+img.logo {
     width: 86px;
 }
 
-img.image-desktop{
+
+img.image-desktop {
     display: none;
 }
 
-div.main-login, div.google-github-login, div.main-register, div.register, div.login-data{
+div.main-login, div.google-github-login, div.main-register, div.register, div.login-data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +71,103 @@ a.register {
     text-decoration: none;
     color: #000000bb;
     font-size: 10px;
+}
+
+header.home {
+    display: flex;
+    background-color: #8293A8;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 10px #EFEEE9;
+}
+
+img.logo-home {
+    width: 50px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+button#sgnOutBtn, button#form-button, button.btn-submitEdit {
+    width: 70px;
+    height: 30px;
+    background-color: #8293A8;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+button.btn-edit, button.btn-delete, button.btn-like, button.btn-dislike {
+    width: 30px;
+    height: 30px;
+    background-color: #8293A8;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+button#form-button {
+    margin: 15px 0;
+}
+
+div.profile-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+div.post-profile{
+    display: flex;
+    margin-top: 15px;
+    border-bottom: solid 10px #EFEEE9;
+}
+
+img.profile-img {
+    width: 80px;
+    height: 80px;
+}
+
+h2.profile-displayName {
+    display: none;
+}
+
+form#post-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input#post-text {
+    height: 80px;
+    width: 65vw;
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    font-size: 14px;
+}
+
+div.post-profile-info {
+    margin: 15px 0px 0px 15px;
+    display: flex;
+    align-items: center;
+}
+
+span.post-displayName-info, p.post-content, p.post-date, span.counter-likes, button.btn-like, button.btn-dislike {
+    margin-left: 15px;
+}
+
+p.post-date{
+    font-size: 10px;
+}
+
+div.btns-area {
+    padding-bottom: 15px;
+    border-bottom: solid 10px #EFEEE9;
 }
 
 @media screen and (min-width: 1024px) {
