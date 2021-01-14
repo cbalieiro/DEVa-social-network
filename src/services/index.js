@@ -32,18 +32,19 @@ export const loginGoogle = () => {
         .doc(firebase.auth().currentUser.uid)
         .set(person);
     })
-    .then(() => {
-      const user = firebase.auth().currentUser;
-      if (user != null) {
-        user.providerData.forEach(function (profile) {
-          const userData = {
-            Name: profile.displayName,
-            Email: profile.email,
-            Photo: profile.photoURL,
-          };
-        });
-      }
-    })
+    // .then(() => {
+    //   const user = firebase.auth().currentUser;
+    //   if (user != null) {
+    //     user.providerData.forEach(function (profile) {
+    //       const userData = {
+    //         Name: profile.displayName,
+    //         Email: profile.email,
+    //         Photo: profile.photoURL,
+    //       };
+    //       console.log(userData);
+    //     });
+    //   }
+    // })
     .then(() => {
       if(firebase.auth().currentUser.emailVerified === false){
         firebase.auth().currentUser.sendEmailVerification();
@@ -72,18 +73,18 @@ export const loginGitHub = () => {
         .doc(firebase.auth().currentUser.uid)
         .set(person);
     })
-    .then(() => {
-      const user = firebase.auth().currentUser;
-      if (user != null) {
-        user.providerData.forEach(function (profile) {
-          const userData = {
-            Name: profile.displayName,
-            Email: profile.email,
-            Photo: profile.photoURL,
-          };
-        });
-      }
-    })
+    // .then(() => {
+    //   const user = firebase.auth().currentUser;
+    //   if (user != null) {
+    //     user.providerData.forEach(function (profile) {
+    //       const userData = {
+    //         Name: profile.displayName,
+    //         Email: profile.email,
+    //         Photo: profile.photoURL,
+    //       };
+    //     });
+    //   }
+    // })
     .then(() => {
       if(firebase.auth().currentUser.emailVerified === false){
         firebase.auth().currentUser.sendEmailVerification();
