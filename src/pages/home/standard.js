@@ -70,8 +70,9 @@ export const postTags = (post, containerPosts) => {
   btnArea.classList.add('btns-area');
 
   const currentUser = firebase.auth().currentUser.uid;
-  const found = post.data().likes;
-  const result = found.find((element) => element === currentUser);
+  const found = [post.data().likes];
+  const arrayFound = found;
+  const result = arrayFound.find( (element) => element === currentUser );
   console.log(result);
 
   if (currentUser !== post.data().userId && currentUser !== result) {
@@ -174,4 +175,32 @@ export const editPostAtt = (postId, classId) => {
     contentChange.removeAttribute('style');
     date.innerText = `${new Date(currentDate).toLocaleString()}`;
   }
+};
+
+export const likePostAtt = (postId, classId) => {
+  const btnLike = document.getElementById(`${classId}-${postId}`);
+  const theClassList = document.getElementById(`${classId}-${postId}`).classList;
+  theClassList.remove(classId);
+  if (classId === 'btn-like') {
+    btnLike.classList.add('btn-dislike');
+    btnLike.id = `btn-dislike-${postId}`;
+    btnLike.innerText = ' Não Curti';
+  }
+  if (classId === 'btn-dislike') {
+    btnLike.classList.add('btn-like');
+    btnLike.id = `btn-like-${post.id}`;
+    btnLike.innerText = ' Curtir ';
+  }
+  // const content = document.getElementById(postId);
+  // const idPostContent = content.firstElementChild.childNodes[1].id;
+  // const contentChange = document.getElementById(idPostContent);
+  // if (classId === 'btn-like') {
+  //   contentChange.setAttribute('contenteditable', 'true');
+  //   contentChange.setAttribute('style', 'background-color: #D9D9D9;');
+  // }
+  // if (classId === 'btn-submitEdit') {
+  //   contentChange.removeAttribute('contenteditable');
+  //   contentChange.removeAttribute('style');
+  //   date.innerText = `${new Date(currentDate).toLocaleString()}`;
+  // }
 };

@@ -111,7 +111,7 @@ export const Home = () => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
     const currentUserInfo = firebase.auth().currentUser;
-    const numLikes = 0;
+    const numLikes = [];
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
       alert('Não é possível fazer postagens em branco');
