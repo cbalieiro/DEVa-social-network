@@ -33,11 +33,7 @@ export const loginGoogle = () => {
         .set(person);
     })
     .then(() => {
-      onNavigate('/home');
-    })
-    .then(() => {
       const user = firebase.auth().currentUser;
-
       if (user != null) {
         user.providerData.forEach(function (profile) {
           const userData = {
@@ -48,10 +44,15 @@ export const loginGoogle = () => {
         });
       }
     })
-    .catch(function (error) {
-      var email = error.email;
-      var credential = error.credential;
-    });
+    .then(() => {
+      if(firebase.auth().currentUser.emailVerified === false){
+        firebase.auth().currentUser.sendEmailVerification();
+        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+      }else{
+        onNavigate('/home');
+      }
+    })
+    .catch((error) => errors(error));
 };
 
 export const loginGitHub = () => {
@@ -72,9 +73,6 @@ export const loginGitHub = () => {
         .set(person);
     })
     .then(() => {
-      onNavigate('/home');
-    })
-    .then(() => {
       const user = firebase.auth().currentUser;
       if (user != null) {
         user.providerData.forEach(function (profile) {
@@ -86,9 +84,15 @@ export const loginGitHub = () => {
         });
       }
     })
-    .catch((error) => {
-      error;
-    });
+    .then(() => {
+      if(firebase.auth().currentUser.emailVerified === false){
+        firebase.auth().currentUser.sendEmailVerification();
+        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+      }else{
+        onNavigate('/home');
+      }
+    })
+    .catch((error) => errors(error));
 };
 
 export const persist = () => {
@@ -96,7 +100,6 @@ export const persist = () => {
   .then(()=>{
     console.log('persistiu');
   })
-
 };
 
 export const createUser = (person) => {
@@ -116,11 +119,16 @@ export const createUser = (person) => {
         .set(person);
     })
     .then(() => {
-      if (firebase.auth().currentUser == null) {
+      firebase.auth().currentUser.sendEmailVerification();
+      alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+    })
+    .then (() => {
         onNavigate('/');
-      } else {
-        onNavigate('/home');
-      }
+    })
+    .then(() =>{
+      firebase.auth().currentUser.updateProfile({
+        userId: firebase.auth().currentUser
+      })
     })
     .catch((error) => errors(error));
 };

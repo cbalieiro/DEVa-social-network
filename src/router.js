@@ -7,8 +7,8 @@ import { onNavigate } from './utils/history.js';
 
 
 window.addEventListener('load', () => { 
-  onNavigate('/'); 
   persist();
+  onNavigate('/'); 
 });
 
 const routeRender = () => {
@@ -30,14 +30,12 @@ window.addEventListener('load', () => {
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/');
-      persist();
     });
   document
     .getElementById('home')
     .addEventListener('click', (e) => {
       e.preventDefault();
       onNavigate('/home');
-      persist();
     });
   document
     .getElementById('register')
