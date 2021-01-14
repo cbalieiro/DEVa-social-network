@@ -94,9 +94,9 @@ export const postTags = (post, containerPosts) => {
   }
 
   const counterLikes = document.createElement('span');
-  if (post.data().likes.length === undefined){
+  if (post.data().likes.length === undefined) {
     counterLikes.innerHTML = `  ${0} `;
-  }else{
+  } else {
     counterLikes.innerHTML = `  ${post.data().likes.length} `;
   }
   counterLikes.classList.add('counter-likes');
@@ -181,4 +181,32 @@ export const editPostAtt = (postId, classId) => {
     contentChange.removeAttribute('style');
     date.innerText = `${new Date(currentDate).toLocaleString()}`;
   }
+};
+
+export const updateLikes = (postId, classId) => {
+  const btnEdit = document.getElementById(`${classId}-${postId}`);
+  const theClassList = document.getElementById(`${classId}-${postId}`).classList;
+  theClassList.remove(classId);
+  if (classId === 'btn-like') {
+    btnEdit.classList.add('btn-dislike');
+    btnEdit.id = `btn-dislike-${postId}`;
+    btnEdit.innerHTML = ' <i class="far fa-heart"></i> ';
+  }
+  if (classId === 'btn-dislike') {
+    btnEdit.classList.add('btn-like');
+    btnEdit.id = `btn-like-${postId}`;
+    btnEdit.innerHTML = ' <i class="far fa-heart"></i> ';
+  }
+  // const content = document.getElementById(postId);
+  // const idPostContent = content.firstElementChild.childNodes[1].id;
+  // const contentChange = document.getElementById(idPostContent);
+  // if (classId === 'btn-edit') {
+  //   contentChange.setAttribute('contenteditable', 'true');
+  //   contentChange.setAttribute('style', 'background-color: #D9D9D9;');
+  // }
+  // if (classId === 'btn-submitEdit') {
+  //   contentChange.removeAttribute('contenteditable');
+  //   contentChange.removeAttribute('style');
+  //   date.innerText = `${new Date(currentDate).toLocaleString()}`;
+  // }
 };
