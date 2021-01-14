@@ -56,8 +56,12 @@ button.login-input, button.login-google, button.login-github, button.register-in
     font-size: 16px;
 }
 
-button.login-input, button.login-github, button.register-input {
+button.login-input, button.login-github {
     margin-top: 40px;
+}
+
+button.register-input {
+    margin-top: 10px;
 }
 
 div.new-register, div.agreement{
