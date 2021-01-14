@@ -21,6 +21,11 @@ div.main-login, div.google-github-login, div.main-register, div.register, div.lo
     align-items: center;
 }
 
+div.main-login {
+    width: 100vw;
+    height: 100vh;
+}
+
 form.login-input, form.register-input {
     display: flex;
     flex-direction: column;
@@ -59,7 +64,6 @@ div.new-register, div.agreement{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
 }
 
 p.without-register {
@@ -206,5 +210,44 @@ div.btns-area {
     a.register {
         margin-left: 3px;
     }
-}
 
+    header.home, div.post-profile {
+        border-bottom: solid 15px #EFEEE9;
+    }
+
+    img.logo-home {
+        width: 70px;
+    }
+
+    button#sgnOutBtn, button#form-button, button.btn-submitEdit {
+        width: 80px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    img.profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    input#post-text {
+        height: 100px;
+        width: 85vw;
+        font-size: 16px;
+    }
+
+    button.btn-edit, button.btn-delete, button.btn-like, button.btn-dislike {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }   
+
+    img.post-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    span.post-displayName-info, p.post-content, p.post-date, span.counter-likes, button.btn-like, button.btn-dislike {
+        font-size: 16px;
+    }
+}
