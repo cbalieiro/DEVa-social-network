@@ -78,6 +78,7 @@ header.home {
     background-color: #8293A8;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid 10px #EFEEE9;
 }
 
 img.logo-home {
@@ -86,7 +87,7 @@ img.logo-home {
     margin-top: 5px;
 }
 
-button#sgnOutBtn, button#form-button {
+button#sgnOutBtn, button#form-button, button.btn-submitEdit {
     width: 70px;
     height: 30px;
     background-color: #8293A8;
@@ -98,8 +99,20 @@ button#sgnOutBtn, button#form-button {
     margin-right: 15px;
 }
 
+button.btn-edit, button.btn-delete, button.btn-like, button.btn-dislike {
+    width: 30px;
+    height: 30px;
+    background-color: #8293A8;
+    border-radius: 5px;
+    border: solid 2px black;
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
 button#form-button {
-    margin-top: 15px;
+    margin: 15px 0;
 }
 
 div.profile-body {
@@ -113,6 +126,7 @@ div.profile-body {
 div.post-profile{
     display: flex;
     margin-top: 15px;
+    border-bottom: solid 10px #EFEEE9;
 }
 
 img.profile-img {
@@ -135,6 +149,25 @@ input#post-text {
     font-family: 'Monda', sans-serif;
     text-align: center;
     font-size: 14px;
+}
+
+div.post-profile-info {
+    margin: 15px 0px 0px 15px;
+    display: flex;
+    align-items: center;
+}
+
+span.post-displayName-info, p.post-content, p.post-date, span.counter-likes, button.btn-like, button.btn-dislike {
+    margin-left: 15px;
+}
+
+p.post-date{
+    font-size: 10px;
+}
+
+div.btns-area {
+    padding-bottom: 15px;
+    border-bottom: solid 10px #EFEEE9;
 }
 
 @media screen and (min-width: 1024px) {

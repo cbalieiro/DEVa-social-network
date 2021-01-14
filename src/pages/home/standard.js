@@ -81,7 +81,7 @@ export const postTags = (post, containerPosts) => {
     const btnLikes = document.createElement('button');
     btnLikes.classList.add('btn-like');
     btnLikes.id = `btn-like-${post.id}`;
-    btnLikes.innerText = ' Curtir ';
+    btnLikes.innerHTML = ' <i class="far fa-heart"></i> ';
     btnArea.appendChild(btnLikes);
   }
 
@@ -89,15 +89,15 @@ export const postTags = (post, containerPosts) => {
     const btndislike = document.createElement('button');
     btndislike.classList.add('btn-dislike');
     btndislike.id = `btn-dislike-${post.id}`;
-    btndislike.innerText = ' Descurtir';
+    btndislike.innerHTML = ' <i class="fas fa-heart"></i> ';
     btnArea.appendChild(btndislike);
   }
 
   const counterLikes = document.createElement('span');
   if (post.data().likes.length === undefined){
-    counterLikes.innerHTML = ` ❤️ ${0} `;
+    counterLikes.innerHTML = `  ${0} `;
   }else{
-    counterLikes.innerHTML = ` ❤️ ${post.data().likes.length} `;
+    counterLikes.innerHTML = `  ${post.data().likes.length} `;
   }
   counterLikes.classList.add('counter-likes');
   btnArea.appendChild(counterLikes);
@@ -106,13 +106,13 @@ export const postTags = (post, containerPosts) => {
     const btnEdit = document.createElement('button');
     btnEdit.classList.add('btn-edit');
     btnEdit.id = `btn-edit-${post.id}`;
-    btnEdit.innerText = ' Editar ';
+    btnEdit.innerHTML = ' <i class="fas fa-pen-square"></i> ';
     btnArea.appendChild(btnEdit);
 
     const btnDelete = document.createElement('button');
     btnDelete.classList.add('btn-delete');
     btnDelete.id = `btn-delete-${post.id}`;
-    btnDelete.innerText = ' Deletar ';
+    btnDelete.innerHTML = ' <i class="far fa-trash-alt"></i> ';
     btnArea.appendChild(btnDelete);
   }
 
@@ -167,7 +167,7 @@ export const editPostAtt = (postId, classId) => {
   if (classId === 'btn-submitEdit') {
     btnEdit.classList.add('btn-edit');
     btnEdit.id = `btn-edit-${postId}`;
-    btnEdit.innerText = ' Editar ';
+    btnEdit.innerHTML = ' <i class="fas fa-pen-square"></i> ';
   }
   const content = document.getElementById(postId);
   const idPostContent = content.firstElementChild.childNodes[1].id;
