@@ -21,13 +21,13 @@ export const Register = () => {
       const person = {
         userName: registerPage.querySelector('#register-name').value,
         userNickname: registerPage.querySelector('#register-userID').value,
-        userId: firebase.auth().currentUser.uid,
+        userId: '',
         email: registerPage.querySelector('#register-email').value,
         password: registerPage.querySelector('#register-pass').value,
       };
       createUser(person);
-      persist(person);
     }
+    
   });
 
   return registerPage;
