@@ -47,7 +47,7 @@ export const loginGoogle = () => {
     .then(() => {
       if(firebase.auth().currentUser.emailVerified === false){
         firebase.auth().currentUser.sendEmailVerification();
-      alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
       }else{
         onNavigate('/home');
       }
@@ -87,7 +87,7 @@ export const loginGitHub = () => {
     .then(() => {
       if(firebase.auth().currentUser.emailVerified === false){
         firebase.auth().currentUser.sendEmailVerification();
-      alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
+        alert('Um email de verificação foi enviado para o endereço de email informado. Por favor, confira seu email e clique no link enviado para finalizar o cadastro')
       }else{
         onNavigate('/home');
       }
@@ -127,7 +127,7 @@ export const createUser = (person) => {
     })
     .then(() =>{
       firebase.auth().currentUser.updateProfile({
-        userId: firebase.auth().currentUser.uid
+        userId: firebase.auth().currentUser
       })
     })
     .catch((error) => errors(error));

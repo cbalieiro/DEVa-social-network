@@ -26,6 +26,7 @@ export const Register = () => {
         password: registerPage.querySelector('#register-pass').value,
       };
       createUser(person);
+      persist(person);
     }
     
   });

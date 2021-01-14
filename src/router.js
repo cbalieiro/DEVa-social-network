@@ -6,7 +6,10 @@ import { persist } from './services/index.js';
 import { onNavigate } from './utils/history.js';
 
 
-
+window.addEventListener('load', () => { 
+  persist();
+  onNavigate('/'); 
+});
 
 const routeRender = () => {
   const rootDiv = document.getElementById('root');
@@ -21,37 +24,25 @@ const routeRender = () => {
 };
 
 window.addEventListener('popstate', routeRender);
+window.addEventListener('load', () => {
+  document
+    .getElementById('login')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/');
+    });
+  document
+    .getElementById('home')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/home');
+    });
+  document
+    .getElementById('register')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      onNavigate('/register');
+    });
 
-window.addEventListener('load', () => { 
   routeRender();
-  if(firebase.auth().currentUser === null){
-    onNavigate('/'); 
-  }else{
-    onNavigate('/home'); 
-    persist();
-  }
-  
 });
-
-// window.addEventListener('load', () => {
-//   document
-//     .getElementById('login')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       onNavigate('/');
-//     });
-//   document
-//     .getElementById('home')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       onNavigate('/home');
-//     });
-//   document
-//     .getElementById('register')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       onNavigate('/register');
-//     });
-
-//   routeRender();
-// });
