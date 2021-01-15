@@ -20,7 +20,7 @@ export const timelineTags = () => {
   </main>
   <footer class='footer'>
     <div>
-        <p>Copyright 2020 | <a href='https://github.com/cbalieiro' target='_blank'>Camila Oliveira</a>,<a href='https://github.com/rebecaCanesin' target='_blank'>Rebeca Canesin</a> e <a href='https://github.com/ThWember' target='_blank'>Thais Wemberlaine</a>
+        <p class='footer'>Copyright 2020 | <a href='https://github.com/cbalieiro' target='_blank'>Camila Oliveira </a>,<a href='https://github.com/rebecaCanesin' target='_blank'>Rebeca Canesin</a> e <a href='https://github.com/ThWember' target='_blank'>Thais Wemberlaine</a>
         </p>        
     </div>
   </footer>
