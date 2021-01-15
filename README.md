@@ -54,15 +54,9 @@ As tarefas foram dividas entre os membros da equipe utilizando a designação de
 
 ## 4. Desenvolvimento :bulb:
 
-
-
-
-No `README.md`, conte-nos brevemente como você mapeou as necessidades dos seus
-usuários e como você chegou à definição final do seu produto. É importante que
-detalhe:
-
-- Quem são os principais usuários do produto.
-- Qual problema o produto resolve/para que ele serve para esses usuários.
+O projeto DEVa surgiu de uma necessidade observada pelas próprias desenvolvedoras da aplicação. Nós sentiamos que precisávamos fazer algo para mulheres, principalmente para aquelas que vivem da tecnologia como nós. Sentiamos falta de um espaço de acolhimento e troca entre desenvolvedoras, e foi assim que surgiu a ideia do projeto. 
+Partimos para as pesquisas com outras desenvolvedoras, para saber se pensavam como nós. Não foi surpresa descobrir que sim. Então estava validado o nascimento dessa rede social. 
+A seguir algumas etapas importantes do desenvolvimento do projeto e de como ele foi pensado e estruturado. 
 
 ### 4.1 Histórias de usuário :bookmark_tabs:
 
