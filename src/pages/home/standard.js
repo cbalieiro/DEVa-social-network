@@ -81,7 +81,7 @@ export const postTags = (post, containerPosts) => {
     const btnLikes = document.createElement('button');
     btnLikes.classList.add('btn-like');
     btnLikes.id = `btn-like-${post.id}`;
-    btnLikes.innerHTML ='&#10084;&#65039;';
+    btnLikes.innerHTML = '♡';
     btnArea.appendChild(btnLikes);
   }
 
@@ -89,7 +89,7 @@ export const postTags = (post, containerPosts) => {
     const btndislike = document.createElement('button');
     btndislike.classList.add('btn-dislike');
     btndislike.id = `btn-dislike-${post.id}`;
-    btndislike.innerHTML = '♡';
+    btndislike.innerHTML = '&#10084;&#65039;';
     btnArea.appendChild(btndislike);
   }
 
@@ -100,6 +100,7 @@ export const postTags = (post, containerPosts) => {
     counterLikes.innerHTML = `  ${post.data().likes.length} `;
   }
   counterLikes.classList.add('counter-likes');
+  counterLikes.id = `counter-likes-${post.id}`;
   btnArea.appendChild(counterLikes);
 
   if (firebase.auth().currentUser.uid === post.data().userId) {
@@ -190,23 +191,23 @@ export const updateLikes = (postId, classId) => {
   if (classId === 'btn-like') {
     btnEdit.classList.add('btn-dislike');
     btnEdit.id = `btn-dislike-${postId}`;
-    btnEdit.innerHTML = '♡';
+    btnEdit.innerHTML = ' &#10084;&#65039;';
   }
   if (classId === 'btn-dislike') {
     btnEdit.classList.add('btn-like');
     btnEdit.id = `btn-like-${postId}`;
-    btnEdit.innerHTML = '&#10084;&#65039;';
+    btnEdit.innerHTML = '♡';
   }
-  // const content = document.getElementById(postId);
-  // const idPostContent = content.firstElementChild.childNodes[1].id;
-  // const contentChange = document.getElementById(idPostContent);
-  // if (classId === 'btn-edit') {
-  //   contentChange.setAttribute('contenteditable', 'true');
-  //   contentChange.setAttribute('style', 'background-color: #D9D9D9;');
-  // }
-  // if (classId === 'btn-submitEdit') {
-  //   contentChange.removeAttribute('contenteditable');
-  //   contentChange.removeAttribute('style');
-  //   date.innerText = `${new Date(currentDate).toLocaleString()}`;
-  // }
+  const counter = document.getElementById(postId);
+  const idPostCounter = counter.lastElementChild.childNodes[3].childNodes[1].id;
+  const counterChange = document.getElementById(idPostCounter);
+  if (classId === 'btn-like') {
+    const count = Number(counterChange.textContent);
+    counterChange.innerHTML = count + 1;
+  }
+
+  if (classId === 'btn-dislike') {
+    const count = Number(counterChange.textContent);
+    counterChange.innerHTML = count - 1;
+  }
 };
