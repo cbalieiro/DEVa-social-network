@@ -1,5 +1,17 @@
-import { logOut } from '../../services/index.js';
-import { timelineTags, postTags, navTags, editPostAtt,} from './standard.js';
+import {
+  logOut,
+  currentUser,
+  collectionPosts,
+  createPost,
+  editPostDB,
+  updateLike,
+  updateDislike,
+  deletePostDB,
+} from '../../services/index.js';
+
+import {
+  timelineTags, postTags, navTags, editPostAtt, updateLikes,
+} from './standard.js';
 
 export const Home = () => {
   const rootElement = document.createElement('div');
@@ -13,9 +25,9 @@ export const Home = () => {
     logOut();
   });
 
-  const postCollection = firebase.firestore().collection('posts');
-
-  const clear = () => { rootElement.querySelector('#post-text').value = ' '; };
+  const clear = () => {
+    rootElement.querySelector('#post-text').value = ' ';
+  };
 
   function loadNav() {
     const containerNav = rootElement.querySelector('#profile-info');
@@ -30,9 +42,7 @@ export const Home = () => {
   }
 
   function loadPosts() {
-    postCollection
-    .orderBy('date', 'desc')
-    .get().then((x) => {
+    collectionPosts().then((x) => {
       x.forEach((post) => {
         addPost(post);
       });
@@ -40,15 +50,13 @@ export const Home = () => {
   }
 
   function deletePost(postId) {
-    const confirmDelete = confirm('Tem certeza de que deseja excluir a postagem?');
+    const confirmDelete = window.confirm('Tem certeza de que deseja excluir a postagem?');
     if (confirmDelete === true) {
-      postCollection
-      .doc(postId)
-      .delete()
-      .then(() => {
+      deletePostDB(postId)
+        .then(() => {
           const postFather = document.getElementById(`${postId}`);
           postFather.remove();
-      });
+        });
     }
   }
 
@@ -62,56 +70,44 @@ export const Home = () => {
     const textUser = document.getElementById(idPostContent).textContent;
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
-      alert('Não é possível fazer postagens em branco');
+      window.alert('Não é possível fazer postagens em branco');
     } else {
-      postCollection
-      .doc(`${postId}`)
-      .update({
+      const updateDB = {
         text: textUser,
         date: date.getTime(),
-      })
-        .then(() => { editPostAtt(postId, classId); });
+      };
+      editPostDB(postId, updateDB)
+        .then(() => {
+          editPostAtt(postId, classId);
+        });
     }
   }
 
-  function likePost(postId) {
+  function likePost(postId, classId) {
     const buttonLike = document.getElementById(`btn-like-${postId}`);
-    const usersLikes = firebase.auth().currentUser.uid;
-    postCollection
-    .doc(postId)
-    .update({
-      likes: firebase.firestore.FieldValue.arrayUnion(usersLikes)
-    })
-    .then(()=>{   
-      buttonLike.nextSibling.innerHTML = ' ';
-    })
-    .then (()=>{
-      // postCollection.doc(postId).get(postId.data().likes);
-      // console.log(likes);
-      // buttonLike.nextSibling.innerHTML = ` ❤️ ${likes.length} `; 
-      
-      console.log('colocou um like');
-    })
-    
-  };
+    const usersLikes = currentUser();
+    updateLike(postId, usersLikes.uid)
+      .then(() => {
+        updateLikes(postId, classId);
+        // buttonLike.nextSibling.innerHTML = ' ';
+      })
+      .then(() => {
+        console.log('colocou um like');
+      });
+  }
 
-  function dislikePost (postId){
+  function dislikePost(postId, classId) {
     const buttonDislike = document.getElementById(`btn-dislike-${postId}`);
-    const usersLikes = firebase.auth().currentUser.uid;
-    postCollection.doc(postId).update({
-      likes: firebase.firestore.FieldValue.arrayRemove(usersLikes)
-    })
-    .then(()=>{   
-      buttonDislike.nextSibling.innerHTML = ' ';
-    })
-    .then (()=>{
-      // const likes = postCollection.doc(postId).get(post.data().likes.length);
-      // console.log(likes);
-      // buttonDislike.nextSibling.innerHTML = ` ❤️ ${likes} `; 
-      console.log('tirou o like');
-      
-    }) 
-  };
+    const usersLikes = currentUser();
+    updateDislike(postId, usersLikes.uid)
+      .then(() => {
+        updateLikes(postId, classId);
+        // buttonDislike.nextSibling.innerHTML = ' ';
+      })
+      .then(() => {
+        console.log('tirou o like');
+      });
+  }
 
   document.addEventListener('click', (e) => {
     const infoClick = e.target;
@@ -122,10 +118,10 @@ export const Home = () => {
 
     switch (className) {
       case 'btn-like':
-        likePost(arrayId[2]);
+        likePost(arrayId[2], className);
         break;
       case 'btn-dislike':
-        dislikePost(arrayId[2]);
+        dislikePost(arrayId[2], className);
         break;
       case 'btn-edit':
         editPost(arrayId[2], className);
@@ -146,10 +142,10 @@ export const Home = () => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textUser = rootElement.querySelector('#post-text').value;
-    const currentUserInfo = firebase.auth().currentUser;
+    const currentUserInfo = currentUser();
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
-      alert('Não é possível fazer postagens em branco');
+      window.alert('Não é possível fazer postagens em branco');
     } else {
       const post = {
         name: currentUserInfo.displayName,
@@ -160,12 +156,12 @@ export const Home = () => {
         comments: [],
         date: date.getTime(),
       };
-      
-      postCollection.add(post).then(() => {
-        clear();
-        rootElement.querySelector('#post-list').innerHTML = ' ';
-        loadPosts();
-      });
+      createPost(post)
+        .then(() => {
+          clear();
+          rootElement.querySelector('#post-list').innerHTML = ' ';
+          loadPosts();
+        });
     }
   });
 

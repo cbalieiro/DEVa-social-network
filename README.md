@@ -15,11 +15,10 @@ DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizad
 - [2. Desenvolvedoras](#2-desenvolvedoras)
 - [3. Planejamento](#3-planejamento)
 - [4. Desenvolvimento](#4-desenvolvimento)
-  - [4.1 Definição do Produto](#4.1-definição-do-produto)
-  - [4.2 Histórias de Usuário](#4.2-histórias-de-usuário)
-  - [4.3 Paleta de Cores](#4.3-paleta-de-cores)
-  - [4.4 Protótipos Mobile](#4.4-protótipos-mobile)
-  - [4.5Protótipos Desktop](#4.5-protótipos-desktop)
+  - [4.1 Histórias de Usuário](#4.1-histórias-de-usuário)
+  - [4.2 Paleta de Cores](#4.2-paleta-de-cores)
+  - [4.3 Protótipos Mobile](#4.3-protótipos-mobile)
+  - [4.4 Protótipos Desktop](#4.4-protótipos-desktop)
 - [5. Habilidades Desenvolvidas](#5-habilidades-desenvolvidas)
 
 ---
@@ -58,12 +57,12 @@ A equipe utilizou a ferramenta _Trello_ para fazer todo o planejamento e organiz
 
 ![planejamento-trello](src/images/planejamento-trello.png)
 
-As tarefas foram dividas entre os membros da equipe utilizando a designação de membro responsável por cada atividade com auxílio dos cards. Se quiser saber um pouco mais sobre nosso planejamento e a maneira como dividimos as tarefas, pode acessar nosso quadro através desse [link](link para o quadro do trello).
+As tarefas foram dividas entre os membros da equipe utilizando a designação de membro responsável por cada atividade com auxílio dos cards. Se quiser saber um pouco mais sobre nosso planejamento e a maneira como dividimos as tarefas, pode acessar nosso quadro através desse [link](https://trello.com/b/Q4fA92H7/sap005-social-network).
 
 ## 4. Desenvolvimento :bulb:
 
 
-### 4.1 Definição do produto
+
 
 No `README.md`, conte-nos brevemente como você mapeou as necessidades dos seus
 usuários e como você chegou à definição final do seu produto. É importante que
@@ -72,13 +71,13 @@ detalhe:
 - Quem são os principais usuários do produto.
 - Qual problema o produto resolve/para que ele serve para esses usuários.
 
-### 4.2 Histórias de usuário
+### 4.1 Histórias de usuário :bookmark_tabs:
 
-Iniamos os estudos 
+Iniciamos os estudos para definição das histórias de usuários com uma pesquisa. Os resultados desta nos ajudaram a determinar as funcionalidades que criariamos para a primeira versão da rede social e quais funcionalidades seriam desenvolvidas para uma segunda versão do projeto. Também possibilitou a criação dos perfis de protopersonas, nos facilitando, assim, entender nossas futuras usuárias. Todos esses resultados são apresentados a seguir.
 
 #### :mag_right: Pesquisa com usuárias 
 
-O projeto partiu de uma pesquisa com usuárias em potencial da aplicação. Vinte e quatro desenvolvedoras responderam um questionário desenvolvido na ferramenta de formulário do Google. Essa pesquisa nos trouxe os seguintes resultados:
+A pesquisa realizada para o projeto foi com usuárias em potencial da aplicação. Vinte e quatro desenvolvedoras responderam um questionário desenvolvido na ferramenta de formulário do Google. Essa pesquisa nos trouxe os seguintes resultados:
 
 ##### :bar_chart: Validou a necessidade de criar uma rede social somente para desenvolvedoras
 ![pesquisa-rede-social](src/images/pesquisa-validacao-rede.png)
@@ -107,13 +106,13 @@ O projeto partiu de uma pesquisa com usuárias em potencial da aplicação. Vint
 
 
   
-### 4.3 Paleta de Cores :art:
+### 4.2 Paleta de Cores :art:
 
 Pensando em trazer neutralidade para a página e cores que combinassem com um layout simples, a seguinte paleta de cores foi usada para a execução do projeto: 
 ![Paletadecores](src/images/paleta-de-cores.jpeg)
 
 
-### 4.4 Protótipos Mobile :iphone:
+### 4.3 Protótipos Mobile :iphone:
 
 O projeto foi desenvolvido utilizando o método _mobile first_. Os seguintes protótipos foram desenhados para a aplicação e serviram como guia para a estilização da página. 
 Desde o início o projeto foi pensado para ter um layout simples, que não cansasse as usuárias. Aumentando o tempo de permanência no site e melhorando a experiência, já que nosso público alvo tende a trabalhar muitas horas em frente ao computador e sabemos o quanto isso cansa.
@@ -129,9 +128,12 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 
 ![Protótipotimeline](src/images/prototipo-timeline-mobile.jpeg)
 
-### 4.5 Protótipos para Desktop
+### 4.4 Protótipos para Desktop :computer:
 
+#### :large_blue_circle: Página de Login de usuário
+![prototipo-login](src/images/prototipo-login-desktop.jpeg)
 
+Os protótipos das páginas de cadastro e da _timeline_ de usuário para _desktop_ foram iguais à versão _mobile_. A diferença estava na configuração do tamanho da página na hora da estilização da mesma. 
 
 ## 5. Habilidades Desenvolvidas :dart:
 
@@ -161,8 +163,6 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 #### Testes
 
 :pushpin: Teste unitários
-:pushpin: Testes assíncronos
-:pushpin: Mocking
 
 #### Git e Github
 
