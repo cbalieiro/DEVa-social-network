@@ -75,7 +75,6 @@ export const postTags = (post, containerPosts) => {
   const currentUser = firebase.auth().currentUser.uid;
   const found = post.data().likes;
   const result = found.find(element => element === currentUser);
-  console.log(result);
 
   if (currentUser !== post.data().userId && currentUser !== result) {
     const btnLikes = document.createElement('button');
