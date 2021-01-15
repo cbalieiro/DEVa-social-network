@@ -1,375 +1,174 @@
-# Criando uma Rede Social
+# DEVa | Social Network
+
+
+![DEVa](src/images/logo-deva.png)
+
+DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizada para ser um espaço de troca de conhecimento e uma rede de apoio entre mulheres desenvolvedoras. 
+[**Acesse a  DEVa**](https://rede-social-79057.firebaseapp.com/) :purple_heart:
+> Status do Projeto: Concluído :heavy_check_mark:
+
+
 
 ## Índice
 
-- [1. Prefácio](#1-prefácio)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker edition](#6-hacker-edition)
-- [7. Entrega](#7-entrega)
-- [8. Guias, dicas e leituras
-  complementares](#8-guias-dicas-e-leituras-complementares)
+- [1. Apresentação do Projeto](#1-apresentação-do-projeto)
+- [2. Desenvolvedoras](#2-desenvolvedoras)
+- [3. Planejamento](#3-planejamento)
+- [4. Desenvolvimento](#4-desenvolvimento)
+  - [4.1 Histórias de Usuário](#4.1-histórias-de-usuário)
+  - [4.2 Paleta de Cores](#4.2-paleta-de-cores)
+  - [4.3 Protótipos Mobile](#4.3-protótipos-mobile)
+  - [4.4 Protótipos Desktop](#4.4-protótipos-desktop)
+- [5. Habilidades Desenvolvidas](#5-habilidades-desenvolvidas)
 
 ---
 
-## 1. Prefácio
+## 1. Apresentação do Projeto :clipboard:
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
-invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
-viver sem elas.
+O projeto DEVa tem como público alvo mulheres que estudam, trabalham e se interessam por tecnologia. Nosso intuito é construir um espaço onde essas mulheres podem se encontrar e trocar conhecimento, experiências, informações sobre trabalhos e o que mais tenham interesse sobre esse mundo _tech_ tão abrangente no qual trabalhamos. Também foi pensado para ser um espaço de acolhimento e apoio entre essas mulheres, que muitas vezes precisam de mentoria para começar no mundo _tech_ e tem dificuldade de encontrar esse apoio em outros canais. 
+Conheça um pouco da aplicação e como poderá usá-la.
 
-Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em
-uma rodada de financiamento com investidores, foi apresentada uma rede social
-para químicos onde os usuários podem publicar artigos a respeito de suas
-pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com
-determinadas tags ou popularidade, mais recente ou mais comentado.
+![gifdoprojeto](src/images/deva.gif)
 
-## 2. Resumo do projeto
 
-Neste projeto você construirá uma Rede Social sobre o que você e sua equipe
-decidirem. Pode ser, por exemplo, sobre alimentação saudável, feminismo,
-educação, saúde, energias renováveis, amantes das
-[Empanadas](https://pt.wikipedia.org/wiki/Empanada), de
-[Tacos](<https://pt.wikipedia.org/wiki/Taco_(culin%C3%A1ria)>), de
-[Feijoada](https://pt.wikipedia.org/wiki/Feijoada), ou do que seja.
+## 2. Desenvolvedoras :computer:
 
-Sua Rede Social terá que permitir à qualquer usuário criar uma conta de acesso,
-logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
+Para conhecer um pouco mais do trabalho de cada uma das desenvolvedoras responsáveis pela realização desse projeto clique nos nomes delas a seguir:
 
-## 3. Objetivos de aprendizagem
+#### :octocat: [**Camila Oliveira**](https://github.com/cbalieiro) 
 
-O objetivo principal de aprendizagem deste projeto é construir uma [Single-page
-Application
-(SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica)
-[_responsiva_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
-(com mais de uma tela/ página) na qual seja possível **ler e escrever dados.**
+#### :octocat: [**Rebeca Canesin**](https://github.com/rebecaCanesin)
 
-### HTML e CSS
+#### :octocat: [**Thais Wemberlaine**](https://github.com/ThWember) 
 
-- [ ] [HTML
-      semântico](https://developer.mozilla.org/pt-BR/docs/Glossario/Semantica)
-- [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [ ] Construir sua aplicação respeitando o protótipo.
-
-### DOM e Web APIs
-
-- [ ] [Manipulação do
-      DOM](https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o)
-- [ ] [History
-      API](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API)
-
-### Javascript
-
-- [ ] [Uso de
-      callbacks](https://developer.mozilla.org/pt-BR/docs/Glossario/Callback_function)
-- [ ] [Consumo de
-      Promises](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-- [ ] Uso de ES modules
-      ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
-      |
-      [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
-
-### Firebase
-
-- [ ] [Firestore](https://firebase.google.com/docs/firestore)
-- [ ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
-- [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
-
-### Testing
-
-- [ ] [Teste unitários](https://jestjs.io/docs/pt-BR/getting-started)
-- [ ] [Testes assíncronos](https://jestjs.io/docs/pt-BR/asynchronous)
-- [ ] [Mocking](https://jestjs.io/docs/pt-BR/manual-mocks)
-
-### Git e Github
-
-- [ ] [Colaboração pelo Github](https://docs.github.com/pt/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)
-- [ ] Organização pelo [Github Projects](https://docs.github.com/pt/free-pro-team@latest/github/managing-your-work-on-github/about-project-boards)
-
-### Boas práticas de programação
-
-- [ ] Modularização
-- [ ] Nomenclatura / Semântica
-- [ ] Linting
 
 ---
 
-## 4. Considerações gerais
+## 3. Planejamento :memo:
 
-- Este projeto deve ser desenvolvido em trios.
+A equipe utilizou a ferramenta _Trello_ para fazer todo o planejamento e organização do projeto. Abaixo a imagem do quadro que a equipe criou para tal fim. 
 
-- A lógica do projeto deve estar implementada completamente em JavaScript
-  (ES6+), HTML e CSS :smiley:. Para este projeto **não está permitido** o uso de
-  _frameworks_ ou bibliotecas de CSS e JS.
+![planejamento-trello](src/images/planejamento-trello.png)
 
-- A divisão e organização do trabalho deve permitir, sem exceção, que **cada
-  integrante** da equipe pratique a aprendizagem de tudo que está envolvido em
-  **cada história**. _Não dividam o trabalho como em uma fábrica._
+As tarefas foram dividas entre os membros da equipe utilizando a designação de membro responsável por cada atividade com auxílio dos cards. Se quiser saber um pouco mais sobre nosso planejamento e a maneira como dividimos as tarefas, pode acessar nosso quadro através desse [link](https://trello.com/b/Q4fA92H7/sap005-social-network).
 
-- Está avançando em seus projetos com alguma fluidez e sem grandes problemas?
-  Seja generosa com suas parceiras, deixe-as aprender e praticar sem restrições,
-  mesmo que demore um pouco mais. Aproveite para _mentorá-las_, para fazer _pair
-  programming_. Uma das melhores formas de aprender é explicar verbalmente.
+## 4. Desenvolvimento :bulb:
 
-- Está sentindo dificuldade e para você é mais difícil de avançar? Não fique com
-  as partes "fáceis" do projeto. Converse, negocie, busque sua oportunidade de
-  praticar e aprender o que é mais difícil para você.
+O projeto DEVa surgiu de uma necessidade observada pelas próprias desenvolvedoras da aplicação. Nós sentiamos que precisávamos fazer algo para mulheres, principalmente para aquelas que vivem da tecnologia como nós. Sentiamos falta de um espaço de acolhimento e troca entre desenvolvedoras, e foi assim que surgiu a ideia do projeto. 
+Partimos para as pesquisas com outras desenvolvedoras, para saber se pensavam como nós. Não foi surpresa descobrir que sim. Então estava validado o nascimento dessa rede social. 
+A seguir algumas etapas importantes do desenvolvimento do projeto e de como ele foi pensado e estruturado. 
 
-- Vocês apenas poderão trabalhar em uma história por vez. Não avancem para a
-  próxima sem completar a anterior. As histórias apenas são concluídas quando se
-  completam **todos** os critérios de aceitação + **toda** sua definição de
-  pronto.
+### 4.1 Histórias de usuário :bookmark_tabs:
 
-## 5. Critérios de aceitação mínimos do projeto
+Iniciamos os estudos para definição das histórias de usuários com uma pesquisa. Os resultados desta nos ajudaram a determinar as funcionalidades que criariamos para a primeira versão da rede social e quais funcionalidades seriam desenvolvidas para uma segunda versão do projeto. Também possibilitou a criação dos perfis de protopersonas, nos facilitando, assim, entender nossas futuras usuárias. Todos esses resultados são apresentados a seguir.
 
-### 5.1 Boilerplate
+#### :mag_right: Pesquisa com usuárias 
 
-O _boilerplate_ contém uma estrutura de arquivos como ponto de partida, assim
-como toda a configuração de dependências:
+A pesquisa realizada para o projeto foi com usuárias em potencial da aplicação. Vinte e quatro desenvolvedoras responderam um questionário desenvolvido na ferramenta de formulário do Google. Essa pesquisa nos trouxe os seguintes resultados:
 
-```text
-.
-├── src
-|  ├── pages (páginas)
-|  |  └── home
-|  |  |  ├── index.js
-|  |  |  └── index.spec.js
-|  |  └── login
-|  |     ├── index.js
-|  |     └── index.spec.js
-|  ├── services (serviços externos)
-|  |  ├── index.js
-|  |  └── index.spec.js
-|  ├── utils
-|  |  └── history.js
-|  ├── index.html
-|  ├── router.js
-|  └── style.css
-├── README.md
-└── package.json
+##### :bar_chart: Validou a necessidade de criar uma rede social somente para desenvolvedoras
+![pesquisa-rede-social](src/images/pesquisa-validacao-rede.png)
 
-```
+##### :bar_chart: Demonstrou que o login na rede social com a utilização das contas do Google e GitHub estavam entre as três mais desejadas. Então optamos por utilizá-las
+![pesquisa-login](src/images/pesquisa-login.png)
 
-### 5.2 Definição do produto
+##### :bar_chart: Demonstrou que o segundo tipo de mídia mais interessante para as usuárias é o texto. A partir disso optamos por implementar esse tipo de mídia primeiro
+![pesquisa-midia](src/images/pesquisa-midia.png)
 
-No `README.md`, conte-nos brevemente como você mapeou as necessidades dos seus
-usuários e como você chegou à definição final do seu produto. É importante que
-detalhe:
+##### :bar_chart: Validou a escolha de desenvolver o projeto a partir do método _mobile first_
+![pesquisa-dispositivo](src/images/pesquisa-dispositivo.png)
 
-- Quem são os principais usuários do produto.
-- Qual problema o produto resolve/para que ele serve para esses usuários.
+##### :bar_chart: Demonstrou a importância de uma seção de comentários para as usuárias. Optamos, assim, implementar uma seção de comentários na próxima versão da rede social.
+![pesquisa-comentarios](src/images/pesquisa-comentarios.png)
 
-### 5.3 Histórias de usuário
+##### :bar_chart: Demonstrou que as usuárias tem interesse em uma área na sua página de perfil para compartilhar com as outra usuárias os links para suas outras redes sociais. Optamos por implementar essa funcionalidade na próxima versão da aplicação
+![pesquisa-links](src/images/pesquisa-links.png)
 
-Depois de entender as necessidades de seus usuários, escreva as Histórias de
-Usuário. Elas representam tudo o que ele precisa fazer/ver na Rede Social. Cada
-uma de suas histórias de usuário deve possuir:
+#### :woman: Protopersonas
 
-- **Critérios de aceitação:** tudo o que deve acontecer para satisfazer as
-  necessidades do usuário.
+![protopersona1](src/images/protopersona1.jpeg)
 
-- **Definição de pronto:** todos os aspectos técnicos que devem ser atendidos
-  para que, como equipe, saibam que essa história está finalizada e pronta para
-  ser publicada. **Todas** suas histórias de usuário (com exceções), devem
-  incluir esses aspectos em sua definição de pronto (além de tudo o que precisa
-  adicionar):
+![protopersona2](src/images/protopersona2.jpeg)
 
-  - Ser uma SPA.
-  - Ser _responsivo_.
-  - Receber _code review_ de pelo menos uma parceira de sua equipe.
-  - Fazer _tests_ unitários.
-  - Fazer testes manuais buscando erros e imperfeições simples.
-  - Fazer testes de usabilidade e incorporar o _feedback_ dos usuários como
-    melhorias.
 
-### 5.4 Desenho da Interface de Usuário (protótipo de baixa fidelidade)
 
-Você deve definir qual será o fluxo que o usuário seguirá dentro do seu
-aplicativo e, com isso, criar a interface do usuário (UI) que siga este fluxo.
+  
+### 4.2 Paleta de Cores :art:
 
-### 5.5 Responsivo
+Pensando em trazer neutralidade para a página e cores que combinassem com um layout simples, a seguinte paleta de cores foi usada para a execução do projeto: 
+![Paletadecores](src/images/paleta-de-cores.jpeg)
 
-Deve funcionar bem em dispositivos de tela grande (computadores, laptops etc.) e
-pequena (_tablets_, telefones celulares etc.). Sugerimos seguir a técnica
-_`mobile first`_ (mais detalhes sobre essa técnica ao final).
 
-### 5.6 Considerações sobre o comportamento da Interface do Usuário (UI)
+### 4.3 Protótipos Mobile :iphone:
 
-Essas considerações ajudarão você a escrever as definições de pronto de sua
-H.U.:
+O projeto foi desenvolvido utilizando o método _mobile first_. Os seguintes protótipos foram desenhados para a aplicação e serviram como guia para a estilização da página. 
+Desde o início o projeto foi pensado para ter um layout simples, que não cansasse as usuárias. Aumentando o tempo de permanência no site e melhorando a experiência, já que nosso público alvo tende a trabalhar muitas horas em frente ao computador e sabemos o quanto isso cansa.
 
-#### Criação e login de conta de usuário
 
-- _Login_ com Firebase:
-  - Para o _login_ e postagens na timeline, você pode usar
-    [Firebase Authentication](https://firebase.google.com/docs/auth) e [Cloud Firestore](https://firebase.google.com/docs/firestore)
-  - O usuário deve poder criar uma conta de acesso ou autenticar-se com conta de
-    e-mail e senha e também com uma conta do Google.
-- Validações:
-  - Somente usuários com contas válidas têm acesso permitido.
-  - Não haver usuários repetidos.
-  - A conta do usuário deve ser um email válido.
-  - O que o usuário digita no campo de senha (_input_) deve ser secreto.
-- Comportamento:
-  - Quando o formulário de registro ou login é enviado, ele deve ser validado.
-  - Se houver erros, mensagens descritivas devem ser exibidas para ajudar o
-    usuário.
+#### :large_blue_circle: Página de Login e cadastro de conta de usuário 
 
-#### Timeline/linha do tempo
+![Protótipologin](src/images/prototipo-login-mobile.jpeg)
 
-- Validações:
-  - Ao publicar, deve ser validado se há conteúdo no _input_.
-- Comportamento:
-  - Ao recarregar o aplicativo, é necessário verificar se o usuário está
-    _logado_ antes de exibir o conteúdo,
-  - Conseguir publicar um _post_.
-  - Poder dar e remover _likes_ em uma publicação. Máximo de um por usuário.
-  - Visualizar contagem de _likes_.
-  - Poder excluir uma postagem específica.
-  - Solicitar confirmação antes de excluir um _post_.
-  - Ao clicar em editar um _post_, você deve alterar o texto para um _input_ que
-    permite editar o texto e salvar as alterações.
-  - Ao salvar as alterações, você deve voltar ao texto normal, mas com a
-    informação editada.
-  - Ao recarregar a página, poder ver os textos editados.
 
-### 5.7 Considerações técnicas sobre front-end
 
-- Separar a manipulação do DOM da lógica (separação de responsabilidades).
-- Ter várias telas. Para isso, seu aplicativo deve ser um [Single Page
-  Application
-  (SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica)
-- Alterar e persistir dados. Os dados que você adiciona ou modifica devem
-  persistir por todo o aplicativo. Recomendamos que você use o
-  [Firebase](https://firebase.google.com/) para isso também.
+#### :large_blue_circle: Página Timeline (linha do tempo)
 
-#### Testes unitários
+![Protótipotimeline](src/images/prototipo-timeline-mobile.jpeg)
 
-- Lembre-se de que não há _setup_ de **testes** definido, isso dependerá da
-  estrutura do seu projeto. Você não deve esquecer de pensar sobre os testes.
-  Eles podem ajudar a definir a estrutura e sua lógica.
+### 4.4 Protótipos para Desktop :computer:
 
-- Os testes de unidade devem cobrir no mínimo 70% de _statements_, _functions_,
-  _lines_ e _branches_.
+#### :large_blue_circle: Página de Login de usuário
+![prototipo-login](src/images/prototipo-login-desktop.jpeg)
 
-### 5.8 Considerações técnicas UX
+Os protótipos das páginas de cadastro e da _timeline_ de usuário para _desktop_ foram iguais à versão _mobile_. A diferença estava na configuração do tamanho da página na hora da estilização da mesma. 
 
-- Faça pelo menos 2 entrevistas com os usuários.
-- Faça um protótipo de baixa fidelidade.
-- Verifique se a implementação do código segue as diretrizes do protótipo.
-- Faça sessões de teste de usabilidade com o produto em HTML.
+## 5. Habilidades Desenvolvidas :dart:
 
-## 6. Hacker Edition
 
-As seções chamadas _Hacker Edition_ são **opcionais**. Se **você terminou** e
-cumpriu todos os requisitos acima e sobrou tempo, tente concluí-las. Dessa
-forma, você pode aprofundar e/ou exercitar mais os objetivos de aprendizagem do
-projeto.
+#### HTML e CSS
 
-- Criar posts com imagens.
-- Procurar usuários, adicionar e excluir "amigos".
-- Definir a privacidade de _posts_ (público ou apenas para amigos).
-- Permitir ver na linha do tempo de usuários "não amigos" apenas os posts
-  públicos.
-- Permitir comentar ou responder a uma postagem.
-- Editar perfil.
+:pushpin: HTML semântico
+:pushpin: CSS `flexbox`
+:pushpin: Construir a aplicação respeitando o protótipo.
 
-## 7. Entrega
+#### DOM
 
-O projeto será entregue subindo seu código no GitHub (`commit` /`push`) e a
-interface será hospedada usando o [Firebase Hosting](https://firebase.google.com/docs/hosting).
+:pushpin: Manipulação do DOM
+
+
+#### Javascript
+
+:pushpin: Uso de callbacks
+:pushpin: Consumo de Promises
+:pushpin: Uso de ES modules
+
+#### Firebase
+
+:pushpin: Firestore
+:pushpin: Firebase Auth
+
+#### Testes
+
+:pushpin: Teste unitários
+
+#### Git e Github
+
+:pushpin: Colaboração pelo Github
+
+
+#### Boas práticas de programação
+
+:pushpin: Modularização
+:pushpin: Nomenclatura / Semântica
+:pushpin: Linting
+
+#### Soft Skills
+
+:pushpin: Colaboração
+:pushpin: Trabalho em equipe
+:pushpin: Empatia
+:pushpin: Diálogo entre membros da equipe
+:pushpin: Planejamento
+
 
 ---
-
-## 8. Guias, dicas e leituras complementares
-
-### Primeiros passos
-
-Para começar, você precisará criar um _fork_ e _clone_ deste repositório.
-
-### Instalação de Firebase
-
-Este projeto está configurado para rodar por meio do servidor do Firebase. Para isso, será necessário possuir o [Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli) instalado globalmente em sua máquina. Utilize o comando `npm install -g firebase-tools`
-
-Inicie um novo projeto web no [console do Firebase](https://console.firebase.google.com/) (pode desabilitar o analytics).
-
-Caso apareça a opção de habilitar o Hosting na tela seguinte, selecionar.
-
-Clique no menu lateral `Cloud Firestore` para criar uma nova database como `production mode` e escolher a região `us-east1`.
-
-**IMPORTANTE** rodar todos os comandos do Firebase no terminal a partir da pasta raiz do projeto.
-
-Executar o comando `firebase login` e realizar o [login](https://firebase.google.com/docs/cli#sign-in-test-cli) por meio de uma conta Google - deve abrir uma janela automaticamente, se não abrir pode clicar no link que vai aparecer no console.
-
-Executar o comando `firebase init` para iniciar o setup do projeto.
-
-Selecionar Hosting (aperte espaço para selecionar essa opção e depois enter).
-
-Selecionar `Use an existing project` (o terminal vai mostrar o nome do projeto que você acabou de criar no site do Firebase).
-
-Escrever `src` para definir como `public directory` (o padrão vai estar como `public`).
-
-Escrever `y` para selecionar como SPA.
-
-Escrever `N` para não fazer builds e deploys automáticos com GitHub.
-
-O Firebase vai dizer que `src/index.html` já existe e pergunta se quer sobrescrever. Nesse momento não tem problema fazer isso, ele vai sobrescrever o que veio no boilerplate da Lab com uma página padrão do Firebase. Sugerimos dar `N`, para não sobrescrever o `index.html`.
-
-Se der tudo certo, o Firebase vai criar o arquivo `.firebaserc` de configuração na pasta do projeto e estamos prontas pra continuar.
-
-Instale as dependências do projeto rodando o comando `npm install`.
-
-Para iniciar sua aplicação web, use o comando `npm start` que usamos nos projetos anteriores. Com esse comando, você deve ver em `http://localhost:5000` uma página padrão do Firebase, que está sendo renderizada de `src/index.html`.
-
-### Mobile first
-
-O conceito de [_mobile
-first_](https://tableless.com.br/mobile-first-a-arte-de-pensar-com-foco/) faz
-referência a um processo de desenho e desenvolvimento que parte de como se vê e
-como funciona uma aplicação primeiro em um dispositivo móvel e mais adiante se
-analisa como adaptar a aplicação à telas progressivamente maiores. Esta é uma
-contraposição ao modelo tradicional, no qual primeiro se desenha os websites (ou
-webapps) para desktops e depois os adaptam para telas menores.
-
-A motivação aqui é se assegurar que desde o começo sejam desenhadas telas
-_responsivas_. Dessa forma, começamos com a aparência e o comportamento do
-aplicativo em uma tela e ambiente móvel.
-
-### Múltiplas telas
-
-Em projetos anteriores, nossas aplicações eram compostas de apenas uma tela
-_principal_ (uma só _página_). Neste projeto, precisaremos dividir nossa
-interface em várias _pages_ e oferecer uma maneira de navegar entre
-essas telas. Esse problema pode ser resolvido de várias maneiras: com arquivos
-HTML independentes (cada um com seu próprio URL) e links tradicionais; mantendo
-na memória e renderizando condicionalmente (sem atualizar a página);
-[manipulando o histórico do
-navegador](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API#Navegando_atrav%C3%A9s_do_hist%C3%B3rico)
-com
-[`window.history`](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API).
-Neste projeto, convidamos você a explorar opções e decidir sobre uma opção de
-implementação.
-
-### Gravação de dados
-
-Nos projetos anteriores, consumimos dados, mas ainda não tínhamos escrito dados
-(salvar alterações, criar dados, excluir, etc). Neste projeto, você precisará
-criar (salvar) novos dados, além de ler, atualizar e modificar os dados
-existentes. Esses dados podem ser salvos remotamente usando o
-[Firebase](https://firebase.google.com/).
-
-Outras:
-
-- [Mobile
-  First](https://tableless.com.br/mobile-first-a-arte-de-pensar-com-foco/)
-- [Mobile First Is NOT Mobile Only - Nielsen Norman
-  Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-- [Flexbox - CSS
-  Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [Módulos:
-  Export](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
-- [Módulos:
-  Import](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import)
