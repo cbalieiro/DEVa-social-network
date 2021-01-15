@@ -7,11 +7,12 @@ DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizad
 [**Acesse a  DEVa**](https://rede-social-79057.firebaseapp.com/) :purple_heart:
 > Status do Projeto: Concluído :heavy_check_mark:
 
-
+---
 
 ## Índice
 
 - [1. Apresentação do Projeto](#1-apresentação-do-projeto)
+  - [1.1 Como utilizar a aplicação](#1.1-como-utilizar-a-aplicação)
 - [2. Desenvolvedoras](#2-desenvolvedoras)
 - [3. Planejamento](#3-planejamento)
 - [4. Desenvolvimento](#4-desenvolvimento)
@@ -30,7 +31,42 @@ Conheça um pouco da aplicação e como poderá usá-la.
 
 ![gifdoprojeto](src/images/deva.gif)
 
+### 1.1 Como utilizar a aplicação :pencil2:
 
+Para utilizar a aplicação você deve acessar o site da [DEVa](https://rede-social-79057.firebaseapp.com/).
+
+Assim que carregar o site você será apresentado à página de Login, onde terá as seguintes opções:
+
+>Login (com email e senha)
+* Digitar seu email e senha nos campos indicados e clicar em _Login_. Essa opção funciona se você já tiver uma conta criada na DEVa.
+>Login com Google
+* Basta clicar no botão indicado para login com Google. Se você ainda não tiver uma conta criada na DEVa receberá um email de confirmação de cadastro. Então deverá ir no seu email e clicar no link, finalizando seu cadastro e podendo, assim, retornar ao site da DEVa e fazer seu login normalmente com sua conta do Google. Esse email de confirmação só será enviado no seu primeiro acesso ao site. Depois disso, toda vez que for entrar na DEVa basta clicar no botão de login com Google que será redirecionada automaticamente para sua _timeline_.
+>Login com GitHub
+* Para login com sua conta do GitHub o processo é o mesmo do login com a conta do Google. A única diferença é o botão. Você vai clicar no botão de login com GitHub, depois disso siga os mesmos passos descritos no tópico anterior.
+
+>Cadastrar-se
+* Caso ainda não tenha um perfil cadastrado na aplicação e queira fazer seu login com seu email e uma senha, clique em _Cadastrar-se_. Isso a redirecionará para a página de cadastro. Na página de cadastro você deve preencher todos os campos com os dados indicados (nome, nome de usuária, email válido, senha e repetir a senha), depois clicar em _Cadastrar_. Nesse momento receberá um email de confirmação de cadastro no email informado. Clique no link do email para concluir seu cadastro e retorne à DEVa, com isso você poderá fazer seu login normalmente com email e senha e será redirecionado para sua página _timeline_.
+
+###### Depois de passar pela etapa de login você já estará apta a desfrutar das funcionalidades da aplicação em sua página _timeline_, que são:
+
+>Foto de perfil
+* Terá sua foto no topo da página (caso tenha logado com sua conta do Google ou GitHub). 
+
+>Espaço para postar textos
+* Ao lado de sua foto de perfil tem um campo de texto, onde poderá escrever aquilo que quer compatilhar com suas colegas. Basta escrever no campo de texto e clicar em publicar.
+
+>Editar sua publicação
+* Depois de publicado o seu texto ele aparecerá automaticamente no feed da sua página e você poderá notar em dois botões logo abaixo do seu texto, são os botões de editar (a sua esquerda) e deletar (a sua direita). Para editar o seu texto clique no botão de editar, o campo de texto se tornará editável, quando terminar de reescrever sua mensagem clique no botão publicar, que aparecerá no mesmo lugar do anterior. Pronto, sua publicação aparecerá atualizada na tela.
+
+>Excluir sua publicação
+* Se quiser excluir sua publicação basta clicar no botão de deletar mencionado acima, uma mensagem de confirmação aparecerá, basta clicar em OK que sua publicação será excluída.
+
+>Curtir ou descurtir uma publicação
+* Você ainda terá a opção de curtir ou descurtir as publicações de suas colegas, para tanto, basta clicar no botão com o desenho em formato de coração que aparece nas publicações de outras pessoas. Um clique para curtir, o segundo clique para descurtir.
+
+###### Esperamos que entrem na DEVa, aproveitem o espaço de troca e dividam muito conhecimento _tech_ com suas colegas. 
+
+---
 ## 2. Desenvolvedoras :computer:
 
 Para conhecer um pouco mais do trabalho de cada uma das desenvolvedoras responsáveis pela realização desse projeto clique nos nomes delas a seguir:
@@ -107,18 +143,18 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 
 #### :large_blue_circle: Página de Login e cadastro de conta de usuário 
 
-![Protótipologin](src/images/prototipo-login-mobile.jpeg)
+![Protótipologin](src/images/prototipo-mobile-login.png)
 
 
 
 #### :large_blue_circle: Página Timeline (linha do tempo)
 
-![Protótipotimeline](src/images/prototipo-timeline-mobile.jpeg)
+![Protótipotimeline](src/images/prototipo-mobile-timeline.png)
 
 ### 4.4 Protótipos para Desktop :computer:
 
 #### :large_blue_circle: Página de Login de usuário
-![prototipo-login](src/images/prototipo-login-desktop.jpeg)
+![prototipo-login](src/images/prototipo-desktop-login.png)
 
 Os protótipos das páginas de cadastro e da _timeline_ de usuário para _desktop_ foram iguais à versão _mobile_. A diferença estava na configuração do tamanho da página na hora da estilização da mesma. 
 
@@ -127,8 +163,8 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### HTML e CSS
 
-:pushpin: HTML semântico
-:pushpin: CSS `flexbox`
+:pushpin: HTML semântico<br>
+:pushpin: CSS (flexbox, responsividade)<br>
 :pushpin: Construir a aplicação respeitando o protótipo.
 
 #### DOM
@@ -138,13 +174,13 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### Javascript
 
-:pushpin: Uso de callbacks
-:pushpin: Consumo de Promises
+:pushpin: Uso de callbacks<br>
+:pushpin: Consumo de Promises<br>
 :pushpin: Uso de ES modules
 
 #### Firebase
 
-:pushpin: Firestore
+:pushpin: Firestore<br>
 :pushpin: Firebase Auth
 
 #### Testes
@@ -158,16 +194,16 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### Boas práticas de programação
 
-:pushpin: Modularização
-:pushpin: Nomenclatura / Semântica
+:pushpin: Modularização<br>
+:pushpin: Nomenclatura / Semântica<br>
 :pushpin: Linting
 
 #### Soft Skills
 
-:pushpin: Colaboração
-:pushpin: Trabalho em equipe
-:pushpin: Empatia
-:pushpin: Diálogo entre membros da equipe
+:pushpin: Colaboração<br>
+:pushpin: Trabalho em equipe<br>
+:pushpin: Empatia<br>
+:pushpin: Diálogo entre membros da equipe<br>
 :pushpin: Planejamento
 
 
