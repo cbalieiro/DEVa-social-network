@@ -162,7 +162,9 @@ export const createUser = (person) => {
         userId: firebase.auth().currentUser,
       });
     })
-    .catch((error) => errors(error));
+    .catch((error) => {
+      const alertUser = errors(error);
+      return alert(alertUser)});
 };
 
 export const logOut = () => {

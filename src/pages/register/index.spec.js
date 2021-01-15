@@ -8,7 +8,12 @@ describe('Register', () => {
 });
 
 describe('newUser', () => {
-  it('should be a function', () => {
+  it('Deve ser uma função', () => {
     expect(typeof newUser).toBe('function');
+  });
+
+  it('Deve conter uma estrutura html, respondendo como string', () => {
+    const newUserHtml = newUser();
+    expect(typeof newUserHtml === 'string').toBe(true);
   });
 });
