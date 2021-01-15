@@ -157,6 +157,7 @@ input#post-text {
     font-family: 'Monda', sans-serif;
     text-align: center;
     font-size: 14px;
+    padding: 0;
 }
 
 div.post-profile-info {
@@ -169,6 +170,10 @@ span.post-displayName-info, p.post-content, p.post-date, span.counter-likes, but
     margin-left: 15px;
 }
 
+p.post-content {
+    word-wrap: break-word;
+}
+
 p.post-date{
     font-size: 10px;
 }
@@ -176,6 +181,21 @@ p.post-date{
 div.btns-area {
     padding-bottom: 15px;
     border-bottom: solid 10px #EFEEE9;
+}
+
+footer.footer {
+    display: flex;
+    background-color: #8293A8;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 10px;
+}
+
+@media screen and (min-width: 678px) {
+    input#post-text {
+        width: 80vw;
+    }
 }
 
 @media screen and (min-width: 1024px) {
