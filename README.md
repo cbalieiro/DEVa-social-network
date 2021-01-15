@@ -164,7 +164,7 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 #### HTML e CSS
 
 :pushpin: HTML semântico<br>
-:pushpin: CSS `flexbox`<br>
+:pushpin: CSS (flexbox, responsividade)<br>
 :pushpin: Construir a aplicação respeitando o protótipo.
 
 #### DOM
