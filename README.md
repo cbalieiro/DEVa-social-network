@@ -35,11 +35,11 @@ Conheça um pouco da aplicação e como poderá usá-la.
 
 Para conhecer um pouco mais do trabalho de cada uma das desenvolvedoras responsáveis pela realização desse projeto clique nos nomes delas a seguir:
 
-:octocat: [**Camila Oliveira**](https://github.com/cbalieiro) 
+#### :octocat: [**Camila Oliveira**](https://github.com/cbalieiro) 
 
-:octocat: [**Rebeca Canesin**](https://github.com/rebecaCanesin)
+#### :octocat: [**Rebeca Canesin**](https://github.com/rebecaCanesin)
 
-:octocat: [**Thais Wemberlaine**](https://github.com/ThWember) 
+#### :octocat: [**Thais Wemberlaine**](https://github.com/ThWember) 
 
 
 ---
