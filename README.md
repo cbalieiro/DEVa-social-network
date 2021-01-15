@@ -28,10 +28,7 @@ DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizad
 O projeto DEVa tem como público alvo mulheres que estudam, trabalham e se interessam por tecnologia. Nosso intuito é construir um espaço onde essas mulheres podem se encontrar e trocar conhecimento, experiências, informações sobre trabalhos e o que mais tenham interesse sobre esse mundo _tech_ tão abrangente no qual trabalhamos. Também foi pensado para ser um espaço de acolhimento e apoio entre essas mulheres, que muitas vezes precisam de mentoria para começar no mundo _tech_ e tem dificuldade de encontrar esse apoio em outros canais. 
 Conheça um pouco da aplicação e como poderá usá-la.
 
-![gifdoprojeto](src/images/teste.gif)
-
-
-
+![gifdoprojeto](src/images/deva.gif)
 
 
 ## 2. Desenvolvedoras :computer:
@@ -43,10 +40,6 @@ Para conhecer um pouco mais do trabalho de cada uma das desenvolvedoras respons�
 :octocat: [**Rebeca Canesin**](https://github.com/rebecaCanesin)
 
 :octocat: [**Thais Wemberlaine**](https://github.com/ThWember) 
-
-
-
-
 
 
 ---
