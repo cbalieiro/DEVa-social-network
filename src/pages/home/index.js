@@ -4,13 +4,13 @@ import {
   collectionPosts,
   createPost,
   editPostDB,
-  deletePostDB,
   updateLike,
   updateDislike,
+  deletePostDB,
 } from '../../services/index.js';
 
 import {
-  timelineTags, postTags, navTags, editPostAtt,
+  timelineTags, postTags, navTags, editPostAtt, updateLikes,
 } from './standard.js';
 
 export const Home = () => {
@@ -50,9 +50,7 @@ export const Home = () => {
   }
 
   function deletePost(postId) {
-    const confirmDelete = window.confirm(
-      'Tem certeza de que deseja excluir a postagem?',
-    );
+    const confirmDelete = window.confirm('Tem certeza de que deseja excluir a postagem?');
     if (confirmDelete === true) {
       deletePostDB(postId)
         .then(() => {
@@ -85,24 +83,26 @@ export const Home = () => {
     }
   }
 
-  function likePost(postId) {
+  function likePost(postId, classId) {
     const buttonLike = document.getElementById(`btn-like-${postId}`);
     const usersLikes = currentUser();
     updateLike(postId, usersLikes.uid)
       .then(() => {
-        buttonLike.nextSibling.innerHTML = ' ';
+        updateLikes(postId, classId);
+        // buttonLike.nextSibling.innerHTML = ' ';
       })
       .then(() => {
         console.log('colocou um like');
       });
   }
 
-  function dislikePost(postId) {
+  function dislikePost(postId, classId) {
     const buttonDislike = document.getElementById(`btn-dislike-${postId}`);
     const usersLikes = currentUser();
     updateDislike(postId, usersLikes.uid)
       .then(() => {
-        buttonDislike.nextSibling.innerHTML = ' ';
+        updateLikes(postId, classId);
+        // buttonDislike.nextSibling.innerHTML = ' ';
       })
       .then(() => {
         console.log('tirou o like');
@@ -118,10 +118,10 @@ export const Home = () => {
 
     switch (className) {
       case 'btn-like':
-        likePost(arrayId[2]);
+        likePost(arrayId[2], className);
         break;
       case 'btn-dislike':
-        dislikePost(arrayId[2]);
+        dislikePost(arrayId[2], className);
         break;
       case 'btn-edit':
         editPost(arrayId[2], className);
