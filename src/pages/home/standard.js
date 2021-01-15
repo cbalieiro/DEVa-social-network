@@ -81,7 +81,7 @@ export const postTags = (post, containerPosts) => {
     const btnLikes = document.createElement('button');
     btnLikes.classList.add('btn-like');
     btnLikes.id = `btn-like-${post.id}`;
-    btnLikes.innerHTML = ' <i class="far fa-heart"></i> ';
+    btnLikes.innerHTML ='&#10084;&#65039;';
     btnArea.appendChild(btnLikes);
   }
 
@@ -89,7 +89,7 @@ export const postTags = (post, containerPosts) => {
     const btndislike = document.createElement('button');
     btndislike.classList.add('btn-dislike');
     btndislike.id = `btn-dislike-${post.id}`;
-    btndislike.innerHTML = ' <i class="fas fa-heart"></i> ';
+    btndislike.innerHTML = '♡';
     btnArea.appendChild(btndislike);
   }
 
@@ -190,12 +190,12 @@ export const updateLikes = (postId, classId) => {
   if (classId === 'btn-like') {
     btnEdit.classList.add('btn-dislike');
     btnEdit.id = `btn-dislike-${postId}`;
-    btnEdit.innerHTML = ' <i class="far fa-heart"></i> ';
+    btnEdit.innerHTML = '♡';
   }
   if (classId === 'btn-dislike') {
     btnEdit.classList.add('btn-like');
     btnEdit.id = `btn-like-${postId}`;
-    btnEdit.innerHTML = ' <i class="far fa-heart"></i> ';
+    btnEdit.innerHTML = '&#10084;&#65039;';
   }
   // const content = document.getElementById(postId);
   // const idPostContent = content.firstElementChild.childNodes[1].id;

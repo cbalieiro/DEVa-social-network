@@ -102,7 +102,7 @@ export const Home = () => {
     updateDislike(postId, usersLikes.uid)
       .then(() => {
         updateLikes(postId, classId);
-        buttonDislike.nextSibling.innerHTML = ' ';
+        // buttonDislike.nextSibling.innerHTML = ' ';
       })
       .then(() => {
         console.log('tirou o like');
