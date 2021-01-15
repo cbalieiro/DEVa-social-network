@@ -107,18 +107,18 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 
 #### :large_blue_circle: Página de Login e cadastro de conta de usuário 
 
-![Protótipologin](src/images/prototipo-login-mobile.jpeg)
+![Protótipologin](src/images/prototipo-mobile-login.png)
 
 
 
 #### :large_blue_circle: Página Timeline (linha do tempo)
 
-![Protótipotimeline](src/images/prototipo-timeline-mobile.jpeg)
+![Protótipotimeline](src/images/prototipo-mobile-timeline.png)
 
 ### 4.4 Protótipos para Desktop :computer:
 
 #### :large_blue_circle: Página de Login de usuário
-![prototipo-login](src/images/prototipo-login-desktop.jpeg)
+![prototipo-login](src/images/prototipo-desktop-login.png)
 
 Os protótipos das páginas de cadastro e da _timeline_ de usuário para _desktop_ foram iguais à versão _mobile_. A diferença estava na configuração do tamanho da página na hora da estilização da mesma. 
 
@@ -127,8 +127,8 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### HTML e CSS
 
-:pushpin: HTML semântico
-:pushpin: CSS `flexbox`
+:pushpin: HTML semântico<br>
+:pushpin: CSS `flexbox`<br>
 :pushpin: Construir a aplicação respeitando o protótipo.
 
 #### DOM
@@ -138,13 +138,13 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### Javascript
 
-:pushpin: Uso de callbacks
-:pushpin: Consumo de Promises
+:pushpin: Uso de callbacks<br>
+:pushpin: Consumo de Promises<br>
 :pushpin: Uso de ES modules
 
 #### Firebase
 
-:pushpin: Firestore
+:pushpin: Firestore<br>
 :pushpin: Firebase Auth
 
 #### Testes
@@ -158,16 +158,16 @@ Os protótipos das páginas de cadastro e da _timeline_ de usuário para _deskto
 
 #### Boas práticas de programação
 
-:pushpin: Modularização
-:pushpin: Nomenclatura / Semântica
+:pushpin: Modularização<br>
+:pushpin: Nomenclatura / Semântica<br>
 :pushpin: Linting
 
 #### Soft Skills
 
-:pushpin: Colaboração
-:pushpin: Trabalho em equipe
-:pushpin: Empatia
-:pushpin: Diálogo entre membros da equipe
+:pushpin: Colaboração<br>
+:pushpin: Trabalho em equipe<br>
+:pushpin: Empatia<br>
+:pushpin: Diálogo entre membros da equipe<br>
 :pushpin: Planejamento
 
 
