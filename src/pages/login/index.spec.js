@@ -11,4 +11,8 @@ describe('loginTags', () => {
   it('should be a function', () => {
     expect(typeof loginTags).toBe('function');
   });
+  it('Deve conter uma estrutura html, respondendo como string', () => {
+    const newLoginHtml = loginTags();
+    expect(typeof newLoginHtml === 'string').toBe(true);
+  });
 });

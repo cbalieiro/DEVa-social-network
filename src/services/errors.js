@@ -20,5 +20,5 @@ export const errors = (errorCode) => {
       message = errorCode;
   }
 
-  return (alert(message));
+  return message;
 };

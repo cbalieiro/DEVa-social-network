@@ -5,6 +5,10 @@ describe('errors', () => {
   it('should be a function', () => {
     expect(typeof errors).toBe('function');
   });
+  it('Retorno da função de teste', () => {
+    const testErrors = errors('auth/user-not-found');
+    expect(testErrors).toBe('Usuário não encontrado');
+  });
 });
 
 describe('currentUser', () => {
