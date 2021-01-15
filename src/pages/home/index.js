@@ -84,28 +84,18 @@ export const Home = () => {
   }
 
   function likePost(postId, classId) {
-    const buttonLike = document.getElementById(`btn-like-${postId}`);
     const usersLikes = currentUser();
     updateLike(postId, usersLikes.uid)
       .then(() => {
         updateLikes(postId, classId);
-        // buttonLike.nextSibling.innerHTML = ' ';
-      })
-      .then(() => {
-        console.log('colocou um like');
       });
   }
 
   function dislikePost(postId, classId) {
-    const buttonDislike = document.getElementById(`btn-dislike-${postId}`);
     const usersLikes = currentUser();
     updateDislike(postId, usersLikes.uid)
       .then(() => {
         updateLikes(postId, classId);
-        // buttonDislike.nextSibling.innerHTML = ' ';
-      })
-      .then(() => {
-        console.log('tirou o like');
       });
   }
 
