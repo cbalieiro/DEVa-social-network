@@ -24,7 +24,7 @@ DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizad
 
 ---
 
-## 1. Apresentação do Projeto
+## 1. Apresentação do Projeto :clipboard:
 
 O projeto DEVa tem como público alvo mulheres que estudam, trabalham e se interessam por tecnologia. Nosso intuito é construir um espaço onde essas mulheres podem se encontrar e trocar conhecimento, experiências, informações sobre trabalhos e o que mais tenham interesse sobre esse mundo _tech_ tão abrangente no qual trabalhamos. Também foi pensado para ser um espaço de acolhimento e apoio entre essas mulheres, que muitas vezes precisam de mentoria para começar no mundo _tech_ e tem dificuldade de encontrar esse apoio em outros canais. 
 Conheça um pouco da aplicação e como poderá usá-la.
@@ -74,24 +74,29 @@ detalhe:
 
 ### 4.2 Histórias de usuário
 
-Depois de entender as necessidades de seus usuários, escreva as Histórias de
-Usuário. Elas representam tudo o que ele precisa fazer/ver na Rede Social. Cada
-uma de suas histórias de usuário deve possuir:
+Iniamos os estudos 
+
 #### :mag_right: Pesquisa com usuárias 
 
 O projeto partiu de uma pesquisa com usuárias em potencial da aplicação. Vinte e quatro desenvolvedoras responderam um questionário desenvolvido na ferramenta de formulário do Google. Essa pesquisa nos trouxe os seguintes resultados:
 
-* Validou a necessidade de criar uma rede social somente para desenvolvedoras
+##### :bar_chart: Validou a necessidade de criar uma rede social somente para desenvolvedoras
 ![pesquisa-rede-social](src/images/pesquisa-validacao-rede.png)
 
-* Demonstrou que o login na rede social com a utilização das contas do Google e GitHub estavam entre as três mais desejadas. Então optamos por utilizá-las
+##### :bar_chart: Demonstrou que o login na rede social com a utilização das contas do Google e GitHub estavam entre as três mais desejadas. Então optamos por utilizá-las
 ![pesquisa-login](src/images/pesquisa-login.png)
 
-* Demonstrou que o segundo tipo de mídia mais interessante para as usuárias é o texto. A partir disso optamos por implementar esse tipo de mídia primeiro
+##### :bar_chart: Demonstrou que o segundo tipo de mídia mais interessante para as usuárias é o texto. A partir disso optamos por implementar esse tipo de mídia primeiro
 ![pesquisa-midia](src/images/pesquisa-midia.png)
 
-* Validou a escolha de desenvolver o projeto a partir do método _mobile first_
-![pesquisa-dispositivo](src/images/pesquisa-dipositivo.png)
+##### :bar_chart: Validou a escolha de desenvolver o projeto a partir do método _mobile first_
+![pesquisa-dispositivo](src/images/pesquisa-dispositivo.png)
+
+##### :bar_chart: Demonstrou a importância de uma seção de comentários para as usuárias. Optamos, assim, implementar uma seção de comentários na próxima versão da rede social.
+![pesquisa-comentarios](src/images/pesquisa-comentarios.png)
+
+##### :bar_chart: Demonstrou que as usuárias tem interesse em uma área na sua página de perfil para compartilhar com as outra usuárias os links para suas outras redes sociais. Optamos por implementar essa funcionalidade na próxima versão da aplicação
+![pesquisa-links](src/images/pesquisa-links.png)
 
 #### :woman: Protopersonas
 
@@ -179,7 +184,4 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 :pushpin: Planejamento
 
 
-
-
 ---
-
