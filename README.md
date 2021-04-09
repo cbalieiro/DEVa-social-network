@@ -5,6 +5,11 @@
 
 DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizada para ser um espaço de troca de conhecimento e uma rede de apoio entre mulheres desenvolvedoras. 
 [**Acesse a  DEVa**](https://rede-social-79057.firebaseapp.com/) :purple_heart:
+
+Para conhecer a aplicação use o login:<br> 
+- email: teste@email.com<br>
+- password: 12345678<br> 
+
 > Status do Projeto: Concluído :heavy_check_mark:
 
 ---
