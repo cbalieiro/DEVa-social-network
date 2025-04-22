@@ -1,4 +1,5 @@
 import { createUser, persist } from '../../services/index.js';
+import { handleClickEvent } from '../../utils/uiHelpers.js';
 import { newUser } from './standard.js';
 
 export const Register = () => {
@@ -6,9 +7,7 @@ export const Register = () => {
   const pageStructure = newUser();
   registerPage.innerHTML = pageStructure;
 
-  const submitBTN = registerPage.querySelector('#btn-register-confirm');
-
-  submitBTN.addEventListener('click', (event) => {
+  handleClickEvent(registerPage, '#btn-register-confirm', (event) => {
     event.preventDefault();
     const pass = registerPage.querySelector('#register-pass').value;
     const passConfirm = registerPage.querySelector('#register-passConfirm').value;
@@ -28,7 +27,6 @@ export const Register = () => {
       createUser(person);
       persist(person);
     }
-    
   });
 
   return registerPage;

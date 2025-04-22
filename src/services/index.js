@@ -1,4 +1,4 @@
-import { onNavigate } from '../utils/history.js';
+import { onNavigate } from '../utils/uiHelpers.js';
 import { errors } from './errors.js';
 
 export const currentUser = () => firebase.auth().currentUser;

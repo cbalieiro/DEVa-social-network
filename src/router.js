@@ -3,7 +3,7 @@ import { Home } from './pages/home/index.js';
 import { Login } from './pages/login/index.js';
 import { Register } from './pages/register/index.js';
 import { persist } from './services/index.js';
-import { onNavigate } from './utils/history.js';
+import { onNavigate } from './utils/uiHelpers.js';
 
 
 window.addEventListener('load', () => { 
