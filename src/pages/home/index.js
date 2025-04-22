@@ -8,10 +8,12 @@ import {
   updateDislike,
   deletePostDB,
 } from '../../services/index.js';
+import { handleClickEvent, getElementBySelector } from '../../utils/uiHelpers.js';
 
 import {
   timelineTags, postTags, navTags, editPostAtt, updateLikes,
 } from './standard.js';
+
 
 export const Home = () => {
   const rootElement = document.createElement('div');
@@ -19,32 +21,25 @@ export const Home = () => {
   const pageStructure = timelineTags();
   rootElement.innerHTML = pageStructure;
 
-  const logoutButton = rootElement.querySelector('#sgnOutBtn');
-  logoutButton.addEventListener('click', (e) => {
+  handleClickEvent(rootElement, '#sgnOutBtn', (e) => {
     e.preventDefault();
     logOut();
   });
 
-  const clear = () => {
-    rootElement.querySelector('#post-text').value = ' ';
-  };
+  function clear() { getElementBySelector(rootElement, '#post-text').value = ' '; }
 
-  function loadNav() {
-    const containerNav = rootElement.querySelector('#profile-info');
-    const templateNav = navTags(containerNav);
-    return templateNav;
+  function setupProfileNavigation() {
+    return navTags(getElementBySelector(rootElement, '#profile-info')) | null;
   }
 
-  function addPost(post) {
-    const containerPosts = rootElement.querySelector('#post-list');
-    const templatePost = postTags(post, containerPosts);
-    return templatePost;
+  function appendPost(post) {
+    return postTags(post, getElementBySelector(rootElement, '#post-list')) | null;
   }
 
   function loadPosts() {
     collectionPosts().then((x) => {
       x.forEach((post) => {
-        addPost(post);
+        appendPost(post);
       });
     });
   }
@@ -155,7 +150,7 @@ export const Home = () => {
     }
   });
 
-  loadNav();
+  setupProfileNavigation();
   loadPosts();
   return rootElement;
 };

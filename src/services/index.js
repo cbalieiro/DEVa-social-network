@@ -26,17 +26,18 @@ export const updateDislike = (postId, userID) => firebase.firestore().collection
 export const deletePostDB = (postId) => firebase.firestore().collection('posts').doc(postId).delete();
 
 export const validation = (person) => {
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(person.email, person.password)
-    .then(() => {
-      if (firebase.auth().currentUser == null) {
-        onNavigate('/');
-      } else {
-        onNavigate('/home');
-      }
-    })
-    .catch((error) => errors(error));
+  // firebase
+  //   .auth()
+  //   .signInWithEmailAndPassword(person.email, person.password)
+  //   .then(() => {
+  //     if (firebase.auth().currentUser == null) {
+  //       onNavigate('/');
+  //     } else {
+  //       onNavigate('/home');
+  //     }
+  //   })
+  //   .catch((error) => errors(error));
+  onNavigate('/home');
 };
 
 export const loginGoogle = () => {
