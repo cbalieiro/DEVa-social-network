@@ -3,8 +3,8 @@ export const loginTags = () => {
   
   <div class="main-login">
     <div class="login-images">
-      <img class="logo" src="/src/images/logo-deva.png"/>
-      <img class="image-desktop" src="/src/images/image-desktop.png"/>
+      <img class="logo" src="/src/assets/img/logo-deva.png"/>
+      <img class="image-desktop" src="/src/assets/img/image-desktop.png"/>
     </div>
     <div class="login-data">
       <div class="mail-login">

@@ -1,4 +1,4 @@
-import { messages } from '../../constants/messages.js';
+import { messages } from '../../contants/messages.js';
 import {
   logOut,
   currentUser,

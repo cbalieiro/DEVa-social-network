@@ -1,7 +1,7 @@
 export const timelineTags = () => {
   const template = `
 <header class="home">
-  <img class="logo-home" src="/src/images/logo-deva.png" alt="Logo Deva" />
+  <img class="logo-home" src="/src/assets/img/logo-deva.png" alt="Logo Deva" />
   <button id="sgnOutBtn" type="submit">SAIR</button>
 </header>
 

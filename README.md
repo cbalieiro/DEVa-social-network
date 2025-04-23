@@ -1,7 +1,7 @@
 # DEVa | Social Network
 
 
-![DEVa](src/images/logo-deva.png)
+![DEVa](src/assets/img/logo-deva.png)
 
 DEVa é uma rede social desenvolvida por mulheres e para mulheres. Foi idealizada para ser um espaço de troca de conhecimento e uma rede de apoio entre mulheres desenvolvedoras. 
 [**Acesse a  DEVa**](https://rede-social-79057.firebaseapp.com/) :purple_heart:
@@ -34,7 +34,7 @@ Para conhecer a aplicação use o login:<br>
 O projeto DEVa tem como público alvo mulheres que estudam, trabalham e se interessam por tecnologia. Nosso intuito é construir um espaço onde essas mulheres podem se encontrar e trocar conhecimento, experiências, informações sobre trabalhos e o que mais tenham interesse sobre esse mundo _tech_ tão abrangente no qual trabalhamos. Também foi pensado para ser um espaço de acolhimento e apoio entre essas mulheres, que muitas vezes precisam de mentoria para começar no mundo _tech_ e tem dificuldade de encontrar esse apoio em outros canais. 
 Conheça um pouco da aplicação e como poderá usá-la.
 
-![gifdoprojeto](src/images/deva.gif)
+![gifdoprojeto](src/assets/img/deva.gif)
 
 ### 1.1 Como utilizar a aplicação :pencil2:
 
@@ -89,7 +89,7 @@ Para conhecer um pouco mais do trabalho de cada uma das desenvolvedoras respons�
 
 A equipe utilizou a ferramenta _Trello_ para fazer todo o planejamento e organização do projeto. Abaixo a imagem do quadro que a equipe criou para tal fim. 
 
-![planejamento-trello](src/images/planejamento-trello.png)
+![planejamento-trello](src/assets/img/planejamento-trello.png)
 
 As tarefas foram dividas entre os membros da equipe utilizando a designação de membro responsável por cada atividade com auxílio dos cards. Se quiser saber um pouco mais sobre nosso planejamento e a maneira como dividimos as tarefas, pode acessar nosso quadro através desse [link](https://trello.com/b/Q4fA92H7/sap005-social-network).
 
@@ -108,28 +108,28 @@ Iniciamos os estudos para definição das histórias de usuários com uma pesqui
 A pesquisa realizada para o projeto foi com usuárias em potencial da aplicação. Vinte e quatro desenvolvedoras responderam um questionário desenvolvido na ferramenta de formulário do Google. Essa pesquisa nos trouxe os seguintes resultados:
 
 ##### :bar_chart: Validou a necessidade de criar uma rede social somente para desenvolvedoras
-![pesquisa-rede-social](src/images/pesquisa-validacao-rede.png)
+![pesquisa-rede-social](src/assets/img/pesquisa-validacao-rede.png)
 
 ##### :bar_chart: Demonstrou que o login na rede social com a utilização das contas do Google e GitHub estavam entre as três mais desejadas. Então optamos por utilizá-las
-![pesquisa-login](src/images/pesquisa-login.png)
+![pesquisa-login](src/assets/img/pesquisa-login.png)
 
 ##### :bar_chart: Demonstrou que o segundo tipo de mídia mais interessante para as usuárias é o texto. A partir disso optamos por implementar esse tipo de mídia primeiro
-![pesquisa-midia](src/images/pesquisa-midia.png)
+![pesquisa-midia](src/assets/img/pesquisa-midia.png)
 
 ##### :bar_chart: Validou a escolha de desenvolver o projeto a partir do método _mobile first_
-![pesquisa-dispositivo](src/images/pesquisa-dispositivo.png)
+![pesquisa-dispositivo](src/assets/img/pesquisa-dispositivo.png)
 
 ##### :bar_chart: Demonstrou a importância de uma seção de comentários para as usuárias. Optamos, assim, implementar uma seção de comentários na próxima versão da rede social.
-![pesquisa-comentarios](src/images/pesquisa-comentarios.png)
+![pesquisa-comentarios](src/assets/img/pesquisa-comentarios.png)
 
 ##### :bar_chart: Demonstrou que as usuárias tem interesse em uma área na sua página de perfil para compartilhar com as outra usuárias os links para suas outras redes sociais. Optamos por implementar essa funcionalidade na próxima versão da aplicação
-![pesquisa-links](src/images/pesquisa-links.png)
+![pesquisa-links](src/assets/img/pesquisa-links.png)
 
 #### :woman: Protopersonas
 
-![protopersona1](src/images/protopersona1.jpeg)
+![protopersona1](src/assets/img/protopersona1.jpeg)
 
-![protopersona2](src/images/protopersona2.jpeg)
+![protopersona2](src/assets/img/protopersona2.jpeg)
 
 
 
@@ -137,7 +137,7 @@ A pesquisa realizada para o projeto foi com usuárias em potencial da aplicaçã
 ### 4.2 Paleta de Cores :art:
 
 Pensando em trazer neutralidade para a página e cores que combinassem com um layout simples, a seguinte paleta de cores foi usada para a execução do projeto: 
-![Paletadecores](src/images/paleta-de-cores.jpeg)
+![Paletadecores](src/assets/img/paleta-de-cores.jpeg)
 
 
 ### 4.3 Protótipos Mobile :iphone:
@@ -148,18 +148,18 @@ Desde o início o projeto foi pensado para ter um layout simples, que não cansa
 
 #### :large_blue_circle: Página de Login e cadastro de conta de usuário 
 
-![Protótipologin](src/images/prototipo-mobile-login.png)
+![Protótipologin](src/assets/img/prototipo-mobile-login.png)
 
 
 
 #### :large_blue_circle: Página Timeline (linha do tempo)
 
-![Protótipotimeline](src/images/prototipo-mobile-timeline.png)
+![Protótipotimeline](src/assets/img/prototipo-mobile-timeline.png)
 
 ### 4.4 Protótipos para Desktop :computer:
 
 #### :large_blue_circle: Página de Login de usuário
-![prototipo-login](src/images/prototipo-desktop-login.png)
+![prototipo-login](src/assets/img/prototipo-desktop-login.png)
 
 Os protótipos das páginas de cadastro e da _timeline_ de usuário para _desktop_ foram iguais à versão _mobile_. A diferença estava na configuração do tamanho da página na hora da estilização da mesma. 
 
