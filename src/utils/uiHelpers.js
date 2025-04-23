@@ -25,4 +25,13 @@ export const handleClickEvent = (rootElement, selector, callback) => {
   }
 };
 
-export const getElementBySelector = (rootElement, id) => rootElement.querySelector(id);
+export const getElementBySelector = (rootElement, selector) => rootElement.querySelector(selector);
+
+export const getElementByIdFromElement = (element, id) => element.getElementById(id);
+
+export const clearElementContent = (rootElement, id) => {
+  const element = getElementBySelector(rootElement, id);
+  if (element) {
+    element.value = '';
+  }
+};

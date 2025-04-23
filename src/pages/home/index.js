@@ -1,3 +1,4 @@
+import { messages } from '../../constants/messages.js';
 import {
   logOut,
   currentUser,
@@ -8,7 +9,7 @@ import {
   updateDislike,
   deletePostDB,
 } from '../../services/index.js';
-import { handleClickEvent, getElementBySelector } from '../../utils/uiHelpers.js';
+import { handleClickEvent, getElementBySelector,  getElementByIdFromElement, clearElementContent } from '../../utils/uiHelpers.js';
 
 import {
   timelineTags, postTags, navTags, editPostAtt, updateLikes,
@@ -26,43 +27,44 @@ export const Home = () => {
     logOut();
   });
 
-  function clear() { getElementBySelector(rootElement, '#post-text').value = ' '; }
 
   function setupProfileNavigation() {
-    return navTags(getElementBySelector(rootElement, '#profile-info')) | null;
+    return navTags(getElementBySelector(rootElement, '#profile-info')) || null;
   }
 
-  function appendPost(post) {
-    return postTags(post, getElementBySelector(rootElement, '#post-list')) | null;
+  function setupAndAppendPost(post) {
+    return postTags(post, getElementBySelector(rootElement, '#post-list')) || null;
   }
 
-  function loadPosts() {
-    collectionPosts().then((x) => {
-      x.forEach((post) => {
-        appendPost(post);
+  function initializePostFeed() {
+    collectionPosts().then((postList) => {
+      postList.forEach((post) => {
+        setupAndAppendPost(post);
       });
     });
   }
 
   function deletePost(postId) {
-    const confirmDelete = window.confirm('Tem certeza de que deseja excluir a postagem?');
+    const confirmDelete = window.confirm(messages.post.confirmPostDeletion);
     if (confirmDelete === true) {
       deletePostDB(postId)
         .then(() => {
-          const postFather = document.getElementById(`${postId}`);
-          postFather.remove();
+          const postSelected = getElementByIdFromElement(document, `${postId}`);
+          if (postSelected) {
+            postSelected.remove();
+          }
+        })
+        .catch((error) => {
+          console.error('Error deleting post:', error);
+          window.alert(messages.post.postNotDeleted);
         });
     }
   }
 
-  function editPost(postId, classId) {
-    return editPostAtt(postId, classId);
-  }
-
   function updatePost(postId, classId) {
-    const content = document.getElementById(postId);
+    const content = getElementByIdFromElement(document, postId);
     const idPostContent = content.firstElementChild.childNodes[1].id;
-    const textUser = document.getElementById(idPostContent).textContent;
+    const textUser = getElementByIdFromElement(document, idPostContent).textContent;
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
       window.alert('Não é possível fazer postagens em branco');
@@ -75,6 +77,7 @@ export const Home = () => {
         .then(() => {
           editPostAtt(postId, classId);
         });
+
     }
   }
 
@@ -109,7 +112,7 @@ export const Home = () => {
         dislikePost(arrayId[2], className);
         break;
       case 'btn-edit':
-        editPost(arrayId[2], className);
+        editPostAtt(arrayId[2], className);
         break;
       case 'btn-delete':
         deletePost(arrayId[2]);
@@ -123,10 +126,10 @@ export const Home = () => {
     return message;
   });
 
-  const postForm = rootElement.querySelector('#post-form');
+  const postForm = getElementBySelector(rootElement, '#post-form');
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const textUser = rootElement.querySelector('#post-text').value;
+    const textUser = getElementBySelector(rootElement, '#post-text').value;
     const currentUserInfo = currentUser();
     const date = new Date();
     if (textUser === null || textUser === undefined || textUser === '') {
@@ -143,14 +146,14 @@ export const Home = () => {
       };
       createPost(post)
         .then(() => {
-          clear();
-          rootElement.querySelector('#post-list').innerHTML = ' ';
-          loadPosts();
+          clearElementContent(rootElement, '#post-text');
+          getElementBySelector(rootElement, '#post-list').innerHTML = ' ';
+          initializePostFeed();
         });
     }
   });
 
   setupProfileNavigation();
-  loadPosts();
+  initializePostFeed();
   return rootElement;
 };
