@@ -1,5 +1,9 @@
 export const messages = {
   errors: {
+    invalidEmail: "E-mail inválido",
+    userNotFound: "Usuário não encontrado",
+    emailAlreadyInUse: "E-mail já existe na Deva",
+    userUIDlAlreadyInUse: "UID já existe",
   },
   success: {},
   info: {},
