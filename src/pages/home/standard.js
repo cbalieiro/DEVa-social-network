@@ -52,7 +52,7 @@ export const postTags = (post, containerPosts) => {
   if (post.data().photo === null) {
     const profileImg = document.createElement("img");
     profileImg.classList.add("post-img");
-    profileImg.src = "../../images/code_woman.jpeg";
+    profileImg.src = "../..uyhhyu/assets/img/code_woman.jpeg";
     profileImg.setAttribute("height", "40");
     profileImg.setAttribute("width", "40");
     profileInfo.appendChild(profileImg);
@@ -142,7 +142,7 @@ export const navTags = (containerNav) => {
   if (firebase.auth().currentUser.photoURL === null) {
     const profileImg = document.createElement("img");
     profileImg.classList.add("profile-img");
-    profileImg.src = "../../images/code_woman.jpeg";
+    profileImg.src = "../../assets/img/code_woman.jpeg";
     profileImg.setAttribute("height", "100");
     profileImg.setAttribute("width", "100");
     profileBody.appendChild(profileImg);
