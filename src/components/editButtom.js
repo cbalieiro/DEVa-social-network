@@ -1,22 +1,23 @@
 export const editPostAtt = (postId, classId) => {
   const date = document.getElementById(`post-date-${postId}`);
   const currentDate = new Date().getTime();
-
-  const btnEdit = document.getElementById(`${classId}-${postId}`);
-  const theClassList = document.getElementById(`${classId}-${postId}`).classList;
+  const buttonElement = document.getElementById(`${classId}-${postId}`);
+  const theClassList = buttonElement.classList;
   theClassList.remove(classId);
   if (classId === 'btn-edit') {
-    btnEdit.classList.add('btn-submitEdit');
-    btnEdit.id = `btn-submitEdit-${postId}`;
-    btnEdit.innerText = ' Publicar ';
+    buttonElement.classList.add('btn-submitEdit');
+    buttonElement.id = `btn-submitEdit-${postId}`;
+    buttonElement.innerText = ' Publicar ';
   }
   if (classId === 'btn-submitEdit') {
-    btnEdit.classList.add('btn-edit');
-    btnEdit.id = `btn-edit-${postId}`;
-    btnEdit.innerText = ' Editar ';
+    buttonElement.classList.add('btn-edit');
+    buttonElement.id = `btn-edit-${postId}`;
+    buttonElement.innerText = ' Editar ';
   }
   const content = document.getElementById(postId);
-  const idPostContent = content.firstElementChild.childNodes[1].id;
+  const idPostContent = content.firstElementChild && content.firstElementChild.childNodes[1]
+    ? content.firstElementChild.childNodes[1].id
+    : null;
   const contentChange = document.getElementById(idPostContent);
   if (classId === 'btn-edit') {
     contentChange.setAttribute('contenteditable', 'true');
